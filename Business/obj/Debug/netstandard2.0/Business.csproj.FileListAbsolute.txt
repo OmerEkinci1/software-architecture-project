@@ -1,0 +1,4 @@
+D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\Business\obj\Debug\netstandard2.0\Business.csprojAssemblyReference.cache
+D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\Business\obj\Debug\netstandard2.0\Business.AssemblyInfoInputs.cache
+D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\Business\obj\Debug\netstandard2.0\Business.AssemblyInfo.cs
+D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\Business\obj\Debug\netstandard2.0\Business.csproj.CoreCompileInputs.cache

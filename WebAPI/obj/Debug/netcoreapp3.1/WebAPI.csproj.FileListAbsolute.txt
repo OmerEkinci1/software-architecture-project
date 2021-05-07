@@ -1,0 +1,5 @@
+D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.csprojAssemblyReference.cache
+D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.AssemblyInfoInputs.cache
+D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.AssemblyInfo.cs
+D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.csproj.CoreCompileInputs.cache
+D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.MvcApplicationPartsAssemblyInfo.cache

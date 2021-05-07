@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Entities\\Entities.csproj": {}
+    "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Entities\\Entities.csproj": {}
   },
   "projects": {
-    "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Core\\Core.csproj": {
+    "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Core\\Core.csproj",
+        "projectUniqueName": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Core\\Core.csproj",
+        "projectPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\ekinc\\.nuget\\packages\\",
-        "outputPath": "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Core\\obj\\",
+        "outputPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ekinc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -93,14 +93,14 @@
         }
       }
     },
-    "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Entities\\Entities.csproj": {
+    "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Entities\\Entities.csproj",
+        "projectUniqueName": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Entities\\Entities.csproj",
+        "projectPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\ekinc\\.nuget\\packages\\",
-        "outputPath": "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Entities\\obj\\",
+        "outputPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ekinc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -117,8 +117,8 @@
           "netstandard2.0": {
             "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Core\\Core.csproj": {
-                "projectPath": "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Core\\Core.csproj"
+              "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj": {
+                "projectPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj"
               }
             }
           }

@@ -6885,11 +6885,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Business\\Business.csproj",
+      "projectUniqueName": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Business\\Business.csproj",
       "projectName": "Business",
-      "projectPath": "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Business\\Business.csproj",
+      "projectPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Business\\Business.csproj",
       "packagesPath": "C:\\Users\\ekinc\\.nuget\\packages\\",
-      "outputPath": "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Business\\obj\\",
+      "outputPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ekinc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6906,14 +6906,14 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "projectReferences": {
-            "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Core\\Core.csproj": {
-              "projectPath": "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Core\\Core.csproj"
+            "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj": {
+              "projectPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj"
             },
-            "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\DataAccess\\DataAccess.csproj"
+            "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\DataAccess\\DataAccess.csproj"
             },
-            "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Entities\\Entities.csproj": {
-              "projectPath": "D:\\Program Files\\Git Uploads\\yazilim-mimarisi\\yazilim-mimarisi-insan-kaynaklari\\Entities\\Entities.csproj"
+            "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Entities\\Entities.csproj": {
+              "projectPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Entities\\Entities.csproj"
             }
           }
         }
