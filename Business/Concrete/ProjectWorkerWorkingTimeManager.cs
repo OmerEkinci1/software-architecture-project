@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using DataAccess.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,11 +8,11 @@ namespace Business.Concrete
 {
     public class ProjectWorkerWorkingTimeManager : IProjectWorkerWorkingTimeService
     {
-        private IProjectWorkerWorkingTimeService _projectWorkerWorkingTimeService;
+        private IProjectWorkerWorkingTimeDal _projectWorkerWorkingTimeDal;
 
-        public ProjectWorkerWorkingTimeManager(IProjectWorkerWorkingTimeService projectWorkerWorkingTimeService)
+        public ProjectWorkerWorkingTimeManager(IProjectWorkerWorkingTimeDal projectWorkerWorkingTimeDal)
         {
-            _projectWorkerWorkingTimeService = projectWorkerWorkingTimeService;
+            _projectWorkerWorkingTimeDal = projectWorkerWorkingTimeDal;
         }
     }
 }

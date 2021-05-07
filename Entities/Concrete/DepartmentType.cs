@@ -7,7 +7,7 @@ namespace Entities.Concrete
 {
     public class DepartmentType : IEntity
     {
-        public Byte DepartmentID { get; set; }
+        public Byte DepartmentTypeID { get; set; }
         public string DepartmentTypeName { get; set; }
     }
 }

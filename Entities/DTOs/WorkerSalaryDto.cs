@@ -10,8 +10,8 @@ namespace Entities.DTOs
         public int WorkerID { get; set; }
         public Byte DepartmentTypeID { get; set; }
         public string DepartmentTypeName { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        public string WorkerName { get; set; }
+        public string WorkerSurname { get; set; }
         public int SalaryID { get; set; }
         public decimal SalaryAmount { get; set; }
         public DateTime SalaryDate { get; set; }

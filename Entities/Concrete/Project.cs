@@ -9,7 +9,7 @@ namespace Entities.Concrete
     {
         public int ProjectID { get; set; }
         public int ManagerID { get; set; }
-        public string WorkerName { get; set; }
+        public string ProjectName { get; set; }
         public string Subject { get; set; }
         public decimal ProjectBudget { get; set; }
         public Byte MinWorkerCount { get; set; }

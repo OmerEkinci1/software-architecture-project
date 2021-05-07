@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using DataAccess.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,11 +8,11 @@ namespace Business.Concrete
 {
     public class WorkerSalaryExperienceManager : IWorkerSalaryExperienceService
     {
-        private IWorkerSalaryExperienceService _workerSalaryExperienceService;
+        private IWorkerSalaryExperienceDal _workerSalaryExperienceDal;
 
-        public WorkerSalaryExperienceManager(IWorkerSalaryExperienceService workerSalaryExperienceService)
+        public WorkerSalaryExperienceManager(IWorkerSalaryExperienceDal workerSalaryExperienceDal)
         {
-            _workerSalaryExperienceService = workerSalaryExperienceService;
+            _workerSalaryExperienceDal = workerSalaryExperienceDal;
         }
     }
 }

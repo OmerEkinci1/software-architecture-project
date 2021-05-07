@@ -14,5 +14,6 @@ namespace Business.Abstract
         IResult Update(ProjectWorkersDto projectWorkersDto);
 
         IDataResult<List<ProjectWorkersDto>> GetAll();
+        IDataResult<ProjectWorkersDto> Get(int args);
     }
 }

@@ -1,4 +1,4 @@
-﻿using Business.Concrete;
+﻿using Entities.Concrete;
 using Core.Utilities.Results;
 using Entities.DTOs;
 using System;
@@ -14,6 +14,6 @@ namespace Business.Abstract
         IResult Delete(ProjectManager projectManager);
 
         IDataResult<ProjectManager> Get(int managerID);
-        IDataResult<List<ProjectDetailDto>> GetByProjectManagerID(int managerID);
+        //IDataResult<List<ProjectDetailDto>> GetByProjectManagerID(int managerID);
     }
 }

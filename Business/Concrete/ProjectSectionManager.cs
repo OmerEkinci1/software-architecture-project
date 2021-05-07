@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using DataAccess.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,11 +8,11 @@ namespace Business.Concrete
 {
     public class ProjectSectionManager : IProjectSectionService
     {
-        private IProjectSectionService _projectSectionService;
+        private IProjectSectionDal _projectSectionDal;
 
-        public ProjectSectionManager(IProjectSectionService projectSectionService)
+        public ProjectSectionManager(IProjectSectionDal projectSectionDal)
         {
-            _projectSectionService = projectSectionService;
+            _projectSectionDal = projectSectionDal;
         }
     }
 }
