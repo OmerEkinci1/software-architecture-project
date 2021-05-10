@@ -12,8 +12,9 @@ namespace Business.Abstract
         IResult Add(Salary salary);
         IResult Update(Salary salary);
         //IResult Delete(Salary salary);
-
         IDataResult<WorkerSalaryDto> GetByWorkerID(int workerID);
         IDataResult<List<WorkerSalaryDto>> GetAll();
+        IDataResult<List<WorkerSalaryDto>> GetByUserID(int userID);
+
     }
 }

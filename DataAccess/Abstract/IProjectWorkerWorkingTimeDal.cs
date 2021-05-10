@@ -9,6 +9,6 @@ namespace DataAccess.Abstract
 {
     public interface IProjectWorkerWorkingTimeDal : IEntityRepository<ProjectWorkerWorkingTime>
     {
-        List<ProjectWorkerWorkingTimeDto> GetAll();
+        List<ProjectWorkerWorkingTimeDto> GetByProjectWorkerID(int projectWorkerID);
     }
 }

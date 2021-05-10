@@ -10,6 +10,8 @@ namespace DataAccess.Abstract
     public interface IProjectDal : IEntityRepository<Project>
     {
         List<ProjectDetailDto> GetAll();
-        ProjectDetailDto GetProjectByManagerID(int managerID);
+        List<ProjectDetailDto> GetProjectByUserID(int userID);
+        ProjectDetailDto GetByID(int projectID);
+        //List<ProjectDetailsForProjectWorkerDto> GetProjectDetailByProjectSectionDepartmentID(int projectSectionDepartmentID);
     }
 }

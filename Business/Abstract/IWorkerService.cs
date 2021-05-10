@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,9 +11,7 @@ namespace Business.Abstract
     {
         IResult Add(Worker worker);
         IResult Update(Worker worker);
-        IResult Delete(Worker worker);
-
-        IDataResult<Worker> Get(int workerID);
-        IDataResult<List<Worker>> GetAll();
+        IResult Delete(Worker worker);        
+        IDataResult<List<WorkerDto>> GetAll();
     }
 }

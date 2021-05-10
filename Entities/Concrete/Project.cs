@@ -8,7 +8,7 @@ namespace Entities.Concrete
     public class Project : IEntity
     {
         public int ProjectID { get; set; }
-        public int ManagerID { get; set; }
+        public int UserID { get; set; }
         public string ProjectName { get; set; }
         public string Subject { get; set; }
         public decimal ProjectBudget { get; set; }
@@ -16,6 +16,7 @@ namespace Entities.Concrete
         public Byte MaxWorkerCount { get; set; }
         public Byte ActiveWorkerCount { get; set; }
         public DateTime TotalDeclaredTime { get; set; }
-        public DateTime RemainigProjectTime { get; set; }
+        public DateTime RemainingProjectTime { get; set; }
+        public bool Status { get; set; }
     }
 }

@@ -9,6 +9,8 @@ namespace DataAccess.Abstract
 {
     public interface ISalaryDal : IEntityRepository<Salary>
     {
-        List<WorkerSalaryDto> GetWorkerSalary(int workerID);
+        WorkerSalaryDto GetWorkerID(int workerID);
+        List<WorkerSalaryDto> GetAll();
+        List<WorkerSalaryDto> GetByUserID(int userID);
     }
 }

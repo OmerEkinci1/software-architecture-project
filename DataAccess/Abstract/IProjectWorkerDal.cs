@@ -9,6 +9,10 @@ namespace DataAccess.Abstract
 {
     public interface IProjectWorkerDal : IEntityRepository<ProjectWorker>
     {
-        List<ProjectWorkersDto> GetAllProjectWorkers();
+        ProjectWorkerDto GetByProjectSectionDepartmentID(int projectSectionDepartmentID);
+        List<ProjectWorkerDto> GetByWorkerID(int workerID);
+        List<ProjectWorkerDto> GetAll();
+
+
     }
 }

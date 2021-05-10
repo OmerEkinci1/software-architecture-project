@@ -9,7 +9,7 @@ namespace Entities.Concrete
     {
         public int ProjectWorkerID { get; set; }
         public int WorkerID { get; set; }
-        public int ProjectID { get; set; }
-        public int ProjectSectionTypeID { get; set; }
+        public int ProjectSectionDepartmentID { get; set; }
+        public bool Status { get; set; }
     }
 }

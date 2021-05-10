@@ -10,6 +10,7 @@ namespace DataAccess.Abstract
     public interface ICompensationDal : IEntityRepository<Compensation>
     {
         List<WorkerCompensationDto> GetAll();
-        WorkerCompensationDto GetWorkerCompensation(int workerID);
+        WorkerCompensationDto GetByWorkerID(int workerID);
+        List<WorkerCompensationDto> GetByUserID(int userID);
     }
 }

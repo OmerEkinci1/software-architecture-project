@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -20,19 +21,13 @@ namespace Business.Concrete
 
         public IResult Add(DepartmentType departmentType)
         {
+            IResult result = BusinessRules.Run(CheckIfDepartmentAlreadyExist(departmentType));
+            if (result!=null)
+            {
+                return result;
+            }
             _departmentTypeDal.Add(departmentType);
             return new SuccessResult(Messages.DepartmentAdded);
-        }
-
-        public IResult Delete(DepartmentType departmentType)
-        {
-            _departmentTypeDal.Delete(departmentType);
-            return new SuccessResult(Messages.DepartmentDeleted);
-        }
-
-        public IDataResult<DepartmentType> Get(int departmentTypeID)
-        {
-            return new SuccessDataResult<DepartmentType>(_departmentTypeDal.Get(p => p.DepartmentTypeID == departmentTypeID));
         }
 
         public IDataResult<List<DepartmentType>> GetAll()
@@ -42,8 +37,26 @@ namespace Business.Concrete
 
         public IResult Update(DepartmentType departmentType)
         {
+            //IResult result = BusinessRules.Run(CheckIfDepartmentAlreadyExist(departmentType));
+            //if (result != null)
+            //{
+            //    return result;
+            //}
             _departmentTypeDal.Update(departmentType);
             return new SuccessResult(Messages.DepartmentUpdated);
+        }
+
+        private IResult CheckIfDepartmentAlreadyExist(DepartmentType departmentType)
+        {
+            var result = _departmentTypeDal.Get(d => d.DepartmentTypeName == departmentType.DepartmentTypeName);
+            if (result != null)
+            {
+                if (result.DepartmentTypeID!=departmentType.DepartmentTypeID)
+                {
+                    return new ErrorResult(Messages.UserAlreadyHaveDepartment);
+                }
+            }
+            return new SuccessResult();
         }
     }
 }

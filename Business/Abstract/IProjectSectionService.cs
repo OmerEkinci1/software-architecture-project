@@ -1,4 +1,5 @@
 ﻿using Core.Utilities.Results;
+using Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,12 @@ namespace Business.Abstract
 {
     public interface IProjectSectionService
     {
-        IResult Add(ProjectSectionsDto projectSectionsDto);
-        IResult Delete(ProjectSectionsDto projectSectionsDto);
-        IResult Update(ProjectSectionsDto projectSectionsDto);
+        IResult Add(ProjectSection projectSections);
+        IResult Delete(ProjectSection projectSections);
+        IResult Update(ProjectSection projectSections);
+        IDataResult<List<ProjectSection>> GetByProjectID(int projectID); 
+        IDataResult<ProjectSection> GetBySectionID(int sectionID); 
+        //IDataResult<List<ProjectSectionDto>> GetByUserID(int userID);
 
-        IDataResult<ProjectSectionsDto> GetByProjectID(int projectID);
     }
 }

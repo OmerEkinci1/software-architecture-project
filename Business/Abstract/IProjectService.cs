@@ -12,8 +12,11 @@ namespace Business.Abstract
         IResult Add(Project project);
         IResult Update(Project project);
         IResult Delete(Project project);
-
+        IDataResult<ProjectDetailDto> GetByID(int projectID);
         IDataResult<List<ProjectDetailDto>> GetAll();
-        IDataResult<ProjectDetailDto> GetProjectByManagerID(int managerID);
+        IDataResult<List<ProjectDetailDto>> GetProjectByUserID(int userID);
+
+
+
     }
 }

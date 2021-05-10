@@ -3,6 +3,7 @@ using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,24 +21,26 @@ namespace Business.Concrete
 
         public IResult Add(Worker worker)
         {
+            worker.Status = true;
             _workerDal.Add(worker);
             return new SuccessResult(Messages.WorkerAdded);
         }
 
         public IResult Delete(Worker worker)
         {
-            _workerDal.Delete(worker);
-            return new SuccessResult(Messages.WorkerDeleted);
+            worker.Status = false;
+            var result=Update(worker);
+            if (result.Success)
+            {
+                return new SuccessResult(Messages.WorkerDeleted);
+
+            }
+            return new ErrorResult(Messages.NotDeleteWorker);
         }
 
-        public IDataResult<Worker> Get(int workerID)
+        public IDataResult<List<WorkerDto>> GetAll()
         {
-            return new SuccessDataResult<Worker>(_workerDal.Get(w => w.WorkerID == workerID));
-        }
-
-        public IDataResult<List<Worker>> GetAll()
-        {
-            return new SuccessDataResult<List<Worker>>(_workerDal.GetAll());
+            return new SuccessDataResult<List<WorkerDto>>(_workerDal.GetAll());
         }
 
         public IResult Update(Worker worker)

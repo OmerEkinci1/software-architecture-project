@@ -38,12 +38,6 @@ namespace Business.ValidationRules.FluentValidation
             builder.RegisterType<ProjectSectionManager>().As<IProjectSectionService>();
             builder.RegisterType<EfProjectSectionDal>().As<IProjectSectionDal>();
 
-            builder.RegisterType<ProjectManagerManager>().As<IProjectManagerService>();
-            builder.RegisterType<EfProjectManagerDal>().As<IProjectManagerDal>();
-
-            builder.RegisterType<HRManager>().As<IHRService>();
-            builder.RegisterType<EfHRDal>().As<IHRDal>();
-
             builder.RegisterType<DepartmentTypeManager>().As<IDepartmentTypeService>();
             builder.RegisterType<EfDepartmentTypeDal>().As<IDepartmentTypeDal>();
 
@@ -55,6 +49,21 @@ namespace Business.ValidationRules.FluentValidation
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+
+            builder.RegisterType<UserOperationClaimManager>().As<IUserOperationClaimService>();
+            builder.RegisterType<EfUserOperationClaimDal>().As<IUserOperationClaimDal>();
+
+            builder.RegisterType<OperationClaimManager>().As<IOperationClaimService>();
+            builder.RegisterType<EfOperationClaimDal>().As<IOperationClaimDal>();
+
+            builder.RegisterType<WorkerDepartmentTypeManager>().As<IWorkerDepartmentTypeService>();
+            builder.RegisterType<EfWorkerDepartmentTypeDal>().As<IWorkerDepartmentTypeDal>();
+
+            builder.RegisterType<ProjectSectionDepartmentManager>().As<IProjectSectionDepartmentService>();
+            builder.RegisterType<EfProjectSectionDepartmentDal>().As<IProjectSectionDepartmentDal>();
+
+            builder.RegisterType<ProjectGeneralManager>().As<IProjectGeneralService>();
+
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
