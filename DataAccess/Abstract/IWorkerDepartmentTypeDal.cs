@@ -10,6 +10,6 @@ namespace DataAccess.Abstract
     public interface IWorkerDepartmentTypeDal:IEntityRepository<WorkerDepartmentType>
     {
         List<WorkerDepartmentDto> GetAllByDepartmentTypeID(int departmentTypeID);
-        List<WorkerDepartmentDto> GetByWorkerID(int workerID);
+        List<WorkerDepartmentType> GetByWorkerID(int workerID);
     }
 }

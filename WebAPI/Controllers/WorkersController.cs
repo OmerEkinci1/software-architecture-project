@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,9 +22,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public ActionResult Add(Worker worker)
+        public ActionResult Add(WorkerCreationDto workerCreationDto)
         {
-            var result = _workerService.Add(worker);
+            var result = _workerService.Add(workerCreationDto);
             if (result.Success)
             {
                 return Ok(result);

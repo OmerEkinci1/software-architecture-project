@@ -28,7 +28,8 @@ namespace Business.Concrete
 
         public IResult Delete(User user)
         {
-            _userDal.Delete(user);
+            user.Status = false;            
+            _userDal.Update(user);
             return new SuccessResult(Messages.UserDeleted);
         }
         public IResult Update(User user)

@@ -14,7 +14,7 @@ namespace Entities.DTOs
         public decimal ProjectBudget { get; set; }
         public Byte MinWorkerCount { get; set; }
         public Byte MaxWorkerCount { get; set; }
-        public DateTime TotalDeclaredTime { get; set; }
+        public decimal TotalDeclaredTime { get; set; }
         public List<ProjectSectionCreationDto> ProjectSections{ get; set; }
 
     }

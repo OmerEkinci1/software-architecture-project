@@ -36,9 +36,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<WorkerDepartmentDto>>(_workerDepartmentTypeDal.GetAllByDepartmentTypeID(departmentTypeID));
         }
 
-        public IDataResult<List<WorkerDepartmentDto>> GetByWorkerID(int workerID)
+        public IDataResult<List<WorkerDepartmentType>> GetByWorkerID(int workerID)
         {
-            return new SuccessDataResult<List<WorkerDepartmentDto>>(_workerDepartmentTypeDal.GetByWorkerID(workerID));
+            return new SuccessDataResult<List<WorkerDepartmentType>>(_workerDepartmentTypeDal.GetByWorkerID(workerID));
         }
     }
 }

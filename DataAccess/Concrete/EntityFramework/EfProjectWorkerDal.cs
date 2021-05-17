@@ -29,7 +29,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  Status= projectworkers.Status
                              };
                  
-                return result.ToList(); //ProjectSectionDepartmentID     //   ProjectSectionDepartmentID     //  ProjectSectionDepartmentID
+                return result.ToList(); 
 
             }
         }
@@ -41,15 +41,7 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from projectworkers in db.ProjectWorkers
                              join worker in db.Workers on
                              projectworkers.WorkerID equals worker.WorkerID
-                             join projectsectiondepartment in db.ProjectSectionDepartments on
-                             projectworkers.ProjectSectionDepartmentID equals projectsectiondepartment.ProjectSectionDepartmentID
-                             join projectsection in db.ProjectSections on
-                             projectsectiondepartment.ProjectSectionID equals projectsection.ProjectSectionID
-                             join project in db.Projects on
-                             projectsection.ProjectID equals project.ProjectID  
-                             join user in db.Users on
-                             project.UserID equals user.UserID
-                             where projectworkers.ProjectSectionDepartmentID == projectSectionDepartmentID && projectworkers.Status == true
+                             where projectworkers.Status == true && projectworkers.ProjectSectionDepartmentID==projectSectionDepartmentID
                              select new ProjectWorkerDto
                              {
                                  ProjectWorkerID = projectworkers.ProjectWorkerID,
@@ -58,9 +50,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  WorkerSurname = worker.WorkerSurname,
                                  ProjectSectionDepartmentID = projectworkers.ProjectSectionDepartmentID,
                                  Status = projectworkers.Status
-                                 //ProjectDetailForProjectWorker=_projectDal.GetProjectDetailByProjectSectionDepartmentID(projectSectionDepartmentID),
-                                 //ProjectDetail=null
                              };
+
                 return result.SingleOrDefault();
 
             }
@@ -73,15 +64,7 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from projectworkers in db.ProjectWorkers
                              join worker in db.Workers on
                              projectworkers.WorkerID equals worker.WorkerID
-                             join projectsectiondepartment in db.ProjectSectionDepartments on
-                             projectworkers.ProjectSectionDepartmentID equals projectsectiondepartment.ProjectSectionDepartmentID
-                             join projectsection in db.ProjectSections on
-                             projectsectiondepartment.ProjectSectionID equals projectsection.ProjectSectionID
-                             join project in db.Projects on
-                             projectsection.ProjectID equals project.ProjectID
-                             join user in db.Users on
-                             project.UserID equals user.UserID
-                             where projectworkers.WorkerID == workerID && projectworkers.Status == true
+                             where projectworkers.Status == true && projectworkers.WorkerID == workerID
                              select new ProjectWorkerDto
                              {
                                  ProjectWorkerID = projectworkers.ProjectWorkerID,
@@ -90,12 +73,77 @@ namespace DataAccess.Concrete.EntityFramework
                                  WorkerSurname = worker.WorkerSurname,
                                  ProjectSectionDepartmentID = projectworkers.ProjectSectionDepartmentID,
                                  Status = projectworkers.Status
-                                 //ProjectDetail = _projectDal.GetProjectByUserID(user.UserID),
-                                 //ProjectDetailForProjectWorker=null
                              };
+
                 return result.ToList();
 
             }
         }
+
+
+
+        //public ProjectWorkerDto GetByProjectSectionDepartmentID(int projectSectionDepartmentID)
+        //{
+        //    using (DatabaseContext db = new DatabaseContext())
+        //    {
+        //        var result = from projectworkers in db.ProjectWorkers
+        //                     join worker in db.Workers on
+        //                     projectworkers.WorkerID equals worker.WorkerID
+        //                     join projectsectiondepartment in db.ProjectSectionDepartments on
+        //                     projectworkers.ProjectSectionDepartmentID equals projectsectiondepartment.ProjectSectionDepartmentID
+        //                     join projectsection in db.ProjectSections on
+        //                     projectsectiondepartment.ProjectSectionID equals projectsection.ProjectSectionID
+        //                     join project in db.Projects on
+        //                     projectsection.ProjectID equals project.ProjectID  
+        //                     join user in db.Users on
+        //                     project.UserID equals user.UserID
+        //                     where projectworkers.ProjectSectionDepartmentID == projectSectionDepartmentID && projectworkers.Status == true
+        //                     select new ProjectWorkerDto
+        //                     {
+        //                         ProjectWorkerID = projectworkers.ProjectWorkerID,
+        //                         WorkerID = worker.WorkerID,
+        //                         WorkerName = worker.WorkerName,
+        //                         WorkerSurname = worker.WorkerSurname,
+        //                         ProjectSectionDepartmentID = projectworkers.ProjectSectionDepartmentID,
+        //                         Status = projectworkers.Status
+        //                         //ProjectDetailForProjectWorker=_projectDal.GetProjectDetailByProjectSectionDepartmentID(projectSectionDepartmentID),
+        //                         //ProjectDetail=null
+        //                     };
+        //        return result.SingleOrDefault();
+
+        //    }
+        //}
+
+        //public List<ProjectWorkerDto> GetByWorkerID(int workerID)
+        //{
+        //    using (DatabaseContext db = new DatabaseContext())
+        //    {
+        //        var result = from projectworkers in db.ProjectWorkers
+        //                     join worker in db.Workers on
+        //                     projectworkers.WorkerID equals worker.WorkerID
+        //                     join projectsectiondepartment in db.ProjectSectionDepartments on
+        //                     projectworkers.ProjectSectionDepartmentID equals projectsectiondepartment.ProjectSectionDepartmentID
+        //                     join projectsection in db.ProjectSections on
+        //                     projectsectiondepartment.ProjectSectionID equals projectsection.ProjectSectionID
+        //                     join project in db.Projects on
+        //                     projectsection.ProjectID equals project.ProjectID
+        //                     join user in db.Users on
+        //                     project.UserID equals user.UserID
+        //                     where projectworkers.WorkerID == workerID && projectworkers.Status == true
+        //                     select new ProjectWorkerDto
+        //                     {
+        //                         ProjectWorkerID = projectworkers.ProjectWorkerID,
+        //                         WorkerID = worker.WorkerID,
+        //                         WorkerName = worker.WorkerName,
+        //                         WorkerSurname = worker.WorkerSurname,
+        //                         ProjectSectionDepartmentID = projectworkers.ProjectSectionDepartmentID,
+        //                         Status = projectworkers.Status
+        //                         //ProjectDetail = _projectDal.GetProjectByUserID(user.UserID),
+        //                         //ProjectDetailForProjectWorker=null
+        //                     };
+        //        return result.ToList();
+
+        //    }
+        //}
     }
 }

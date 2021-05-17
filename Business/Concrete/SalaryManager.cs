@@ -24,12 +24,6 @@ namespace Business.Concrete
             _salaryDal.Add(salary);
             return new SuccessResult(Messages.SalaryAdded);
         }
-
-        //public IResult Delete(Salary salary)
-        //{
-        //    _salaryDal.Delete(salary);
-        //    return new SuccessResult(Messages.SalaryDeleted);
-        //}
         public IResult Update(Salary salary)
         {
             _salaryDal.Update(salary);

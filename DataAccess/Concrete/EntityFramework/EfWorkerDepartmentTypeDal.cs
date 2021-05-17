@@ -37,7 +37,7 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        public List<WorkerDepartmentDto> GetByWorkerID(int workerID)
+        public List<WorkerDepartmentType> GetByWorkerID(int workerID)
         {
             using (DatabaseContext db = new DatabaseContext())
             {
@@ -45,19 +45,16 @@ namespace DataAccess.Concrete.EntityFramework
                              join worker in db.Workers on
                              wdt.WorkerID equals worker.WorkerID
                              where worker.Status == true && wdt.WorkerID == workerID
-                             select new WorkerDepartmentDto
+                             select new WorkerDepartmentType
                              {
                                  WorkerID = worker.WorkerID,
-                                 WorkerName = worker.WorkerName,
-                                 WorkerSurname = worker.WorkerSurname,
-                                 DailyWorkingTime = worker.DailyWorkingTime,
-                                 HourSalary = worker.HourSalary,
-                                 StartTime = worker.StartTime,
-                                 Status = worker.Status,
-                                 DepartmentTypes = db.DepartmentTypes.Where(p => db.WorkerDepartmentTypes.Where(y => y.WorkerID == worker.WorkerID)
-                                 .Select(x => x.DepartmentTypeID).Contains(p.DepartmentTypeID)).ToList(),
+                                 DepartmentTypeID=wdt.DepartmentTypeID
+
                              };
                 return result.ToList();
+
+                //DepartmentTypes = db.DepartmentTypes.Where(p => db.WorkerDepartmentTypes.Where(y => y.WorkerID == worker.WorkerID)
+                //                 .Select(x => x.DepartmentTypeID).Contains(p.DepartmentTypeID)).ToList(),
             }
         }
     }

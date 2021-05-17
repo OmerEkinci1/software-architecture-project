@@ -43,12 +43,15 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result = from psd in db.ProjectSectionDepartments
                              join dep in db.DepartmentTypes on
-                             psd.DepartmentTypeID equals dep.DepartmentTypeID                            
+                             psd.DepartmentTypeID equals dep.DepartmentTypeID 
+                             join ps in db.ProjectSections on
+                             psd.ProjectSectionID equals ps.ProjectSectionID
                              where psd.ProjectSectionDepartmentID == projectSectionDepartmentID && psd.Status == true
                              select new ProjectSectionDepartmentDto
                              {
                                  ProjectSectionDepartmentID = psd.ProjectSectionDepartmentID,
                                  ProjectSectionID = psd.ProjectSectionID,
+                                 ProjectSectionName=ps.ProjectSectionName,
                                  DepartmentTypeID = psd.DepartmentTypeID,
                                  DepartmentTypeName = dep.DepartmentTypeName
                              };

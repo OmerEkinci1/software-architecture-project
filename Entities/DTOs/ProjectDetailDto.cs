@@ -15,8 +15,8 @@ namespace Entities.DTOs
         public Byte MinWorkerCount { get; set; }
         public Byte MaxWorkerCount { get; set; }
         public Byte ActiveWorkerCount { get; set; }
-        public DateTime TotalDeclaredTime { get; set; }
-        public DateTime RemainingProjectTime { get; set; }
+        public decimal TotalDeclaredTime { get; set; }
+        public decimal RemainingProjectTime { get; set; }
         public int UserID { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

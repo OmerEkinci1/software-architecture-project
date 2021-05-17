@@ -37,11 +37,11 @@ namespace Business.Concrete
 
         public IResult Update(DepartmentType departmentType)
         {
-            //IResult result = BusinessRules.Run(CheckIfDepartmentAlreadyExist(departmentType));
-            //if (result != null)
-            //{
-            //    return result;
-            //}
+            IResult result = BusinessRules.Run(CheckIfDepartmentAlreadyExist(departmentType));
+            if (result != null)
+            {
+                return result;
+            }
             _departmentTypeDal.Update(departmentType);
             return new SuccessResult(Messages.DepartmentUpdated);
         }

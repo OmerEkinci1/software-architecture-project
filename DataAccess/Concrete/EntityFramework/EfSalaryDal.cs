@@ -83,6 +83,7 @@ namespace DataAccess.Concrete.EntityFramework
                              join user in db.Users on
                              salary.UserID equals user.UserID
                              where worker.WorkerID == workerID && worker.Status == true
+                             orderby salary descending
                              select new WorkerSalaryDto
                              {
                                  WorkerID = salary.WorkerID,

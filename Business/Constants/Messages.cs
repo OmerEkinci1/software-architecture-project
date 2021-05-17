@@ -63,5 +63,11 @@ namespace Business.Constants
         internal static string NotDeleteWorker;
 
         public static string ProjectNotDeleted;
+        public static string WorkerNotHaveSkill="Worker bu yetkinliğe sahip değil";
+        public static string ProjectWorkerCapacityMaximum="Worker maxximum sayıda";
+        public static string ProjectWorkerCapacityMinimum="Worker minimum sayıda";
+        public static string AddedProjectWorkerWorkingTime="Worker çalışma saati eklendi işten çıkabilrisin";
+        internal static string UpdatedProjectWorkerWorkingTime;
+        internal static string CanNotUpdatedWorkingTime;
     }
 }

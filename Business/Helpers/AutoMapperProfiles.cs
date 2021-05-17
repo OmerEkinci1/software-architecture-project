@@ -13,6 +13,9 @@ namespace Business.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<ProjectCreationDto, Project>();
+            CreateMap<ProjectDetailDto, Project>();
+            CreateMap<WorkerCreationDto,Worker>();
+            CreateMap<WorkerSalaryDto, Salary>();
 
         }
     }

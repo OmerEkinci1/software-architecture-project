@@ -32,13 +32,6 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CompensationAdded);
         }
 
-
-        //public IResult Delete(Compensation compensation)
-        //{
-        //    _compensationDal.Delete(compensation);
-        //    return new SuccessResult(Messages.CompensationDeleted);
-        //}
-
         public IDataResult<List<WorkerCompensationDto>> GetAll()
         {
             return new SuccessDataResult<List<WorkerCompensationDto>>(_compensationDal.GetAll(), Messages.CompensationListed);
@@ -56,11 +49,6 @@ namespace Business.Concrete
 
         public IResult Update(Compensation compensation)
         {
-            IResult result = BusinessRules.Run(CheckIfUserHasCompensation(compensation));
-            if (result != null)
-            {
-                return result;
-            }
             _compensationDal.Update(compensation);
             return new SuccessResult(Messages.CompensationUpdated);
         }
@@ -77,5 +65,6 @@ namespace Business.Concrete
             }
             return new SuccessResult();
         }
+
     }
 }

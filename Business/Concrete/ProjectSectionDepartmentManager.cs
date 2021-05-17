@@ -74,7 +74,10 @@ namespace Business.Concrete
 
             if (result != null)
             {
-                return new ErrorResult(Messages.DepartmentAlreadyExistInSection);
+                if (result.ProjectSectionDepartmentID!= projectSectionDepartment.ProjectSectionDepartmentID)
+                {
+                    return new ErrorResult(Messages.DepartmentAlreadyExistInSection);
+                }
             }
             return new SuccessResult();
         }

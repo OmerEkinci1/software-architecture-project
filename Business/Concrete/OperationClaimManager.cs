@@ -43,7 +43,11 @@ namespace Business.Concrete
 
         public IResult Update(OperationClaim operationClaim)
         {
-
+            IResult result = BusinessRules.Run(CheckIfOperationClaimAlreadyExist(operationClaim));
+            if (result != null)
+            {
+                return result;
+            }
             _operationClaimDal.Update(operationClaim);
             return new SuccessResult(Messages.OperationClaimUpdated);
         }
@@ -53,9 +57,15 @@ namespace Business.Concrete
             var result = _operationClaimDal.Get(o=>o.OperationClaimName==operationClaim.OperationClaimName);
             if (result != null)
             {
-                return new ErrorResult(Messages.OperationClaimAlreadyExist);
+                if (result.OperationClaimID!=operationClaim.OperationClaimID)
+                {
+                    return new ErrorResult(Messages.OperationClaimAlreadyExist);
+                }
+                
             }
             return new SuccessResult();
+
+
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Business.Concrete
 
         public IResult Delete(Project project)
         {
-            project = _projectDal.Get(p => p.ProjectID == project.ProjectID);
+            //project = _projectDal.Get(p => p.ProjectID == project.ProjectID);
             project.Status = false;
             _projectDal.Update(project);
             return new SuccessResult(Messages.ProjectDeleted);

@@ -16,15 +16,13 @@ namespace Business.Concrete
         private IProjectService _projectService;
         private IProjectSectionService _projectSectionService;
         private IProjectSectionDepartmentService _projectSectionDepartmentService;
-        private IProjectWorkerService _projectWorkerService;
         private IMapper _mapper;
 
-        public ProjectGeneralManager(IProjectService projectService, IProjectSectionService projectSectionService, IProjectSectionDepartmentService projectSectionDepartmentService, IProjectWorkerService projectWorkerService,IMapper mapper)
+        public ProjectGeneralManager(IProjectService projectService, IProjectSectionService projectSectionService, IProjectSectionDepartmentService projectSectionDepartmentService,IMapper mapper)
         {
             _projectService = projectService;
             _projectSectionService = projectSectionService;
             _projectSectionDepartmentService = projectSectionDepartmentService;
-            _projectWorkerService = projectWorkerService;
             _mapper = mapper;
         }
 

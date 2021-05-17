@@ -12,7 +12,7 @@ namespace Business.Abstract
         IResult Add(ProjectWorkerWorkingTime projectWorkerWorkingTime);
         //IResult Delete(ProjectWorkerWorkingTime projectWorkerWorkingTime);
         IResult Update(ProjectWorkerWorkingTime projectWorkerWorkingTime);
-        //IDataResult<List<ProjectWorkerWorkingTimeDto>> GetAll();
+        IDataResult<List<ProjectWorkerWorkingTimeDto>> GetAll();
         IDataResult<List<ProjectWorkerWorkingTimeDto>> GetByProjectWorkerID(int projectWorkerID);
 
     }

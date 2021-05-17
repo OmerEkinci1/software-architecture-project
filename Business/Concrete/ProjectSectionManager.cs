@@ -64,11 +64,14 @@ namespace Business.Concrete
 
         private IResult CheckIfSectionNameAlreadyExistInProject(ProjectSection projectSections)
         {
-            var result = _projectSectionDal.GetAll(p => p.ProjectSectionID == projectSections.ProjectSectionID).Find(p => p.ProjectSectionName == projectSections.ProjectSectionName);
+            var result = _projectSectionDal.GetAll(p => p.ProjectID == projectSections.ProjectID).Find(p => p.ProjectSectionName == projectSections.ProjectSectionName);
 
             if (result != null)
             {
-                return new ErrorResult(Messages.DepartmentAlreadyExistInSection);
+                if (projectSections.ProjectSectionID!=result.ProjectSectionID)
+                {
+                    return new ErrorResult(Messages.DepartmentAlreadyExistInSection);
+                }
             }
             return new SuccessResult();
         }

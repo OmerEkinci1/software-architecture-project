@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -16,7 +17,7 @@ namespace WebAPI.Controllers
 
         public ProjectWorkersController(IProjectWorkerService projectWorkerService)
         {
-            this._projectWorkerService = projectWorkerService;
+            _projectWorkerService = projectWorkerService;
         }
 
         [HttpGet("getall")]
@@ -24,6 +25,39 @@ namespace WebAPI.Controllers
         {
             var result = _projectWorkerService.GetAll();
             if (result.Data != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("add")]
+        public ActionResult Add(ProjectWorker projectWorker)
+        {
+            var result = _projectWorkerService.Add(projectWorker);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("update")]
+        public ActionResult Update(ProjectWorker projectWorker)
+        {
+            var result = _projectWorkerService.Update(projectWorker);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("delete")]
+        public ActionResult Delete(ProjectWorker projectWorker)
+        {
+            var result = _projectWorkerService.Delete(projectWorker);
+            if (result.Success)
             {
                 return Ok(result);
             }
