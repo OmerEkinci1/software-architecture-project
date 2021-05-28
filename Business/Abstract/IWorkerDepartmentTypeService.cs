@@ -12,6 +12,7 @@ namespace Business.Abstract
         IResult Add(WorkerDepartmentType workerDepartmentType);
         IResult Delete(WorkerDepartmentType workerDepartmentType);
         IDataResult<List<WorkerDepartmentDto>> GetAllByDepartmentTypeID(int departmentTypeID);
+        IDataResult<List<WorkerDepartmentDto>> GetAll();
         IDataResult<List<WorkerDepartmentType>> GetByWorkerID(int workerID);
     }
 }

@@ -14,10 +14,12 @@ namespace WebAPI.Controllers
     public class ProjectSectionsController : ControllerBase
     {
         private IProjectSectionService _projectSectionService;
+        private IProjectService _projectService;
 
-        public ProjectSectionsController(IProjectSectionService projectSectionService)
+        public ProjectSectionsController(IProjectSectionService projectSectionService, IProjectService projectService)
         {
             _projectSectionService = projectSectionService;
+            _projectService = projectService;
         }
 
         [HttpPost("add")]
@@ -64,6 +66,5 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        
     }
 }

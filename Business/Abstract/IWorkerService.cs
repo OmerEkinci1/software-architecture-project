@@ -14,5 +14,6 @@ namespace Business.Abstract
         IResult Delete(Worker worker);        
         IDataResult<List<WorkerDto>> GetAll();
         IDataResult<Worker> GetByID(int workerID);
+        IDataResult<List<Worker>> GetAllWorkersByStatusFalse();
     }
 }

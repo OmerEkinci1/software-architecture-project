@@ -15,10 +15,12 @@ namespace WebAPI.Controllers
     public class ProjectGeneralController : ControllerBase
     {
         private IProjectGeneralService _projectGeneralService;
+        private IProjectService _projectService;
 
-        public ProjectGeneralController(IProjectGeneralService projectGeneralService)
+        public ProjectGeneralController(IProjectGeneralService projectGeneralService, IProjectService projectService)
         {
             this._projectGeneralService = projectGeneralService;
+            this._projectService = projectService;
         }
 
         [HttpPost("add")]
@@ -33,9 +35,20 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public ActionResult Delete(Project project)
+        public ActionResult Delete(int projectID)
         {
-            var result = _projectGeneralService.Delete(project);
+            var result = _projectGeneralService.Delete(projectID);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("update")]
+        public ActionResult Update(Project project)
+        {
+            var result = _projectService.Update(project);
             if (result.Success)
             {
                 return Ok(result);
@@ -44,9 +57,20 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getprojectbyprojectid")]
-        public ActionResult GetProjectByProjectID(Project project)
+        public ActionResult GetProjectByProjectID(int projectID)
         {
-            var result = _projectGeneralService.GetProjectByProjectID(project);
+            var result = _projectGeneralService.GetProjectByProjectID(projectID);
+            if (result.Data != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getall")]
+        public ActionResult GetAll()   //?neden
+        {
+            var result = _projectService.GetAll();
             if (result.Data != null)
             {
                 return Ok(result);

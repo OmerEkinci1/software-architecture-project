@@ -42,6 +42,17 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getall")]
+        public ActionResult GetAll(int departmentTypeID)
+        {
+            var result = _workerDepartmentTypeService.GetAll();
+            if (result.Data != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
 
         [HttpGet("getallbydepartmenttypeid")]
         public ActionResult GetByProjectID(int departmentTypeID)

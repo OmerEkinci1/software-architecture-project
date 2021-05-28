@@ -16,12 +16,14 @@ namespace Business.Concrete
         private IWorkerDal _workerDal;
         private ISalaryService _salaryService;
         private IMapper _mapper;
+        private IWorkerDepartmentTypeService _workerDepartmentTypeService;
 
-        public WorkerManager(IWorkerDal workerDal, ISalaryService salaryService,IMapper mapper)
+        public WorkerManager(IWorkerDal workerDal, ISalaryService salaryService,IMapper mapper, IWorkerDepartmentTypeService workerDepartmentTypeService)
         {
             _workerDal = workerDal;
             _salaryService = salaryService;
             _mapper = mapper;
+            _workerDepartmentTypeService = workerDepartmentTypeService;
         }
 
         public IResult Add(WorkerCreationDto workerCreationDto)
@@ -29,6 +31,12 @@ namespace Business.Concrete
             var workerMapper = _mapper.Map<Worker>(workerCreationDto);
             workerMapper.Status = true;
             _workerDal.Add(workerMapper);
+
+            foreach (var departmentType in workerCreationDto.DepartmentTypes)
+            {
+                WorkerDepartmentType workerDepartmentType = new WorkerDepartmentType { DepartmentTypeID = departmentType.DepartmentTypeID, WorkerID = workerMapper.WorkerID };
+                _workerDepartmentTypeService.Add(workerDepartmentType);
+            }
 
             Salary salary = new Salary()
             {
@@ -57,7 +65,12 @@ namespace Business.Concrete
 
         public IDataResult<List<WorkerDto>> GetAll()
         {
-            return new SuccessDataResult<List<WorkerDto>>(_workerDal.GetAll());
+            return new SuccessDataResult<List<WorkerDto>>(_workerDal.GetAllWorker());
+        }
+
+        public IDataResult<List<Worker>> GetAllWorkersByStatusFalse()
+        {
+            return new SuccessDataResult<List<Worker>>(_workerDal.GetAllWorkerByStatusFalse());
         }
 
         public IDataResult<Worker> GetByID(int workerID)

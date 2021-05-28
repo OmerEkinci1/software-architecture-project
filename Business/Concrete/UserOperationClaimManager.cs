@@ -3,6 +3,7 @@ using Business.Constants;
 using Core.Entites.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,6 +29,11 @@ namespace Business.Concrete
         {
             _userOperationClaimDal.Delete(userOperationClaim);
             return new SuccessResult(Messages.UserOperationClaimDeleted);
+        }
+
+        public IDataResult<List<UserOperationClaimDto>> GetAllUserClaims()
+        {
+            return new SuccessDataResult<List<UserOperationClaimDto>>(_userOperationClaimDal.GetAllUserOperationClaim());
         }
 
         public IDataResult<List<OperationClaim>> GetClaims(User user)

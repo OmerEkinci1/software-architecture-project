@@ -65,6 +65,17 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-       
+        [HttpGet("getallworkerstatusfalse")]
+        public ActionResult GetAllWorkerStatusFalse()
+        {
+            var result = _workerService.GetAllWorkersByStatusFalse();
+            if (result.Data != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+
     }
 }

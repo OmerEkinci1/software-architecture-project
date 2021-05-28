@@ -13,7 +13,7 @@ namespace Business.Abstract
         IResult Delete(ProjectSection projectSections);
         IResult Update(ProjectSection projectSections);
         IDataResult<List<ProjectSection>> GetByProjectID(int projectID); 
-        IDataResult<ProjectSection> GetBySectionID(int sectionID); 
+        IDataResult<ProjectSection> GetBySectionID(int sectionID);
         //IDataResult<List<ProjectSectionDto>> GetByUserID(int userID);
 
     }

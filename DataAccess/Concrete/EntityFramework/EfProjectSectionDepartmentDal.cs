@@ -11,6 +11,32 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfProjectSectionDepartmentDal : EfEntityRepositoryBase<ProjectSectionDepartment, DatabaseContext>, IProjectSectionDepartmentDal
     {
+        public List<ProjectSectionDepartmentDto> GetAll()
+        {
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                var result = from psd in db.ProjectSectionDepartments
+                             join dep in db.DepartmentTypes on
+                             psd.DepartmentTypeID equals dep.DepartmentTypeID
+                             join ps in db.ProjectSections on
+                             psd.ProjectSectionID equals ps.ProjectSectionID
+                             join project in db.Projects on
+                             ps.ProjectID equals project.ProjectID
+                             where psd.Status == true
+                             select new ProjectSectionDepartmentDto
+                             {
+                                 ProjectSectionDepartmentID = psd.ProjectSectionDepartmentID,
+                                 ProjectSectionID = psd.ProjectSectionID,
+                                 ProjectSectionName = ps.ProjectSectionName,
+                                 DepartmentTypeID = psd.DepartmentTypeID,
+                                 DepartmentTypeName = dep.DepartmentTypeName
+
+                             };
+
+                return result.ToList();
+            }
+        }
+
         //public List<ProjectSectionDepartmentDto> GetByUserID(int userID)
         //{
         //    using (DatabaseContext db = new DatabaseContext())

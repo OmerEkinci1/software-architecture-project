@@ -12,6 +12,29 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfWorkerDepartmentTypeDal : EfEntityRepositoryBase<WorkerDepartmentType, DatabaseContext>, IWorkerDepartmentTypeDal
     {
+        public List<WorkerDepartmentDto> GetAll()
+        {
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                var result = from wdt in db.WorkerDepartmentTypes
+                             join worker in db.Workers on
+                             wdt.WorkerID equals worker.WorkerID
+                             where  worker.Status == true
+                             select new WorkerDepartmentDto
+                             {
+                                 WorkerID = worker.WorkerID,
+                                 WorkerName = worker.WorkerName,
+                                 WorkerSurname = worker.WorkerSurname,
+                                 DailyWorkingTime = worker.DailyWorkingTime,
+                                 HourSalary = worker.HourSalary,
+                                 StartTime = worker.StartTime,
+                                 Status = worker.Status,
+                                 DepartmentTypes = db.DepartmentTypes.ToList(),
+
+                             };
+                return result.ToList();
+            }
+        }
 
         public List<WorkerDepartmentDto> GetAllByDepartmentTypeID(int departmentTypeID)
         {
