@@ -50,7 +50,7 @@ namespace Business.Concrete
 
         public IDataResult<List<ProjectSection>> GetByProjectID(int projectID)
         {
-            return new SuccessDataResult<List<ProjectSection>>(_projectSectionDal.GetAll(p=>p.ProjectID==projectID && p.Status==true));
+            return new SuccessDataResult<List<ProjectSection>>(_projectSectionDal.GetAll(p=>p.ProjectID==projectID));
         }
         public IDataResult<ProjectSection> GetBySectionID(int sectionID)
         {

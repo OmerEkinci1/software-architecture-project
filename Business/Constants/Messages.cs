@@ -15,7 +15,7 @@ namespace Business.Constants
         public static string PasswordError = "";
         public static string SuccessfulLogin = "";
         public static string UserAlreadyExists = "";
-        public static string AccessTokenCreated = "";
+        public static string AccessTokenCreated = "Your token created";
         public static string CompensationAdded = "";
         public static string CompensationListed = "";
         public static string WorkerListed = "";

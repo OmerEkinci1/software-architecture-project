@@ -56,9 +56,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getbyprojectid")]
-        public ActionResult GetByProjectID(ProjectSection projectSection)
+        public ActionResult GetByProjectID(int projectID)
         {
-            var result = _projectSectionService.GetByProjectID(projectSection.ProjectID);
+            var result = _projectSectionService.GetByProjectID(projectID);
             if (result.Data != null)
             {
                 return Ok(result);
