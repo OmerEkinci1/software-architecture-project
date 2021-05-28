@@ -12,8 +12,8 @@ namespace Business.Abstract
         IResult Add(Compensation compensation);
         IResult Update(Compensation compensation);
         //IResult Delete(Compensation compensation);
-
         IDataResult<WorkerCompensationDto> GetByWorkerID(int workerID);
+        IDataResult<List<WorkerCompensationDto>>GetByUserID(int userID);
         IDataResult<List<WorkerCompensationDto>> GetAll();
     }
 }

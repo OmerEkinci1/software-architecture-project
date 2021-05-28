@@ -5,22 +5,29 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using Entities.DTOs;
 
 namespace DataAccess.Concrete.EntityFramework
 {
     public class EfUserDal : EfEntityRepositoryBase<User, DatabaseContext>, IUserDal
     {
-        public List<OperationClaim> GetClaims(User user)
+        public UserDto GetUserID(int userID)
         {
-            using (var context = new DatabaseContext())
+            using (DatabaseContext db=new DatabaseContext())
             {
-                var result = from operationClaim in context.OperationClaims
-                             join userOperationClaim in context.UserOperationClaims
-                                 on operationClaim.OperationClaimID equals userOperationClaim.OperationClaimID
-                             where userOperationClaim.UserID == user.UserID
-                             select new OperationClaim { OperationClaimID = operationClaim.OperationClaimID, OperationClaimName = operationClaim.OperationClaimName };
-                return result.ToList();
-
+                var result = from user in db.Users
+                             join dep in db.DepartmentTypes on
+                             user.DepartmentTypeID equals dep.DepartmentTypeID
+                             where user.UserID == userID && user.Status == true
+                             select new UserDto
+                             {
+                                 UserID = user.UserID,
+                                 Name = user.Name,
+                                 Surname = user.Surname,
+                                 Email = user.Email,
+                                 DepartmentName = dep.DepartmentTypeName,
+                             };
+                return result.SingleOrDefault();
             }
         }
     }

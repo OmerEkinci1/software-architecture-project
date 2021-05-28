@@ -11,13 +11,12 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-T7O5H9H;Database=YazılımMimarisi;User = Omer; Password = 123;Trusted_Connection=true;");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-8A6F159\SQLEXPRESS;Database=YazılımMimarisi;Integrated Security=True");
         }
 
         public DbSet<Compensation> Compensations { get; set; }
         public DbSet<DepartmentType> DepartmentTypes { get; set; }
-        public DbSet<HR> HRs { get; set; }
-        public DbSet<ProjectManager> ProjectManagers { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<ProjectSection> ProjectSections { get; set; }
         public DbSet<ProjectWorker> ProjectWorkers { get; set; }
@@ -27,6 +26,14 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<WorkerSalaryExperience> WorkerSalaryExperiences { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<ProjectSectionDepartment> ProjectSectionDepartments { get; set; }
+        public DbSet<WorkerDepartmentType> WorkerDepartmentTypes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<WorkerDepartmentType>()
+                .HasKey(c => new { c.DepartmentTypeID, c.WorkerID});
+        }
+
     }
 }

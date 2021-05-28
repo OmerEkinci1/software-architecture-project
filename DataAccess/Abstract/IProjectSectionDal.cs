@@ -9,7 +9,6 @@ namespace DataAccess.Abstract
 {
     public interface IProjectSectionDal : IEntityRepository<ProjectSection>
     {
-        List<ProjectSectionsDto> GetAll();
-        ProjectSectionsDto GetByProjectID(int projectID);
+       // List<ProjectSectionDto> GetByUserID(int userID); //bu kısım EfProject  için
     }
 }

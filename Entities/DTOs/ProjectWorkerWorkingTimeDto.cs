@@ -15,12 +15,12 @@ namespace Entities.DTOs
         public string DailyStartHour { get; set; }
         public string DailyFinishHour { get; set; }
         public DateTime Date { get; set; }
+        public int ProjectSectionDepartmentID { get; set; }
+        public int ProjectSectionID { get; set; }
+        public string ProjectSectionName { get; set; }
+        public Byte DepartmentTypeID { get; set; }
+        public string DepartmentTypeName { get; set; }
         public int ProjectID { get; set; }
         public string ProjectName { get; set; }
-        public string Subject { get; set; }
-        // buradaki manager dedğişebilir belki göstermeyebiliriz.
-        public int ManagerID { get; set; }
-        public string ManagerName { get; set; }
-        public string ManagerSurname { get; set; }
     }
 }

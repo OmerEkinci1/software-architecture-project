@@ -18,14 +18,13 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from compensation in db.Compensations
                              join worker in db.Workers on
                              compensation.WorkerID equals worker.WorkerID
-                             join department in db.DepartmentTypes on
-                             worker.DepartmentTypeID equals department.DepartmentTypeID
-                             orderby compensation.CompensationDate ascending
+                             join user in db.Users on
+                             compensation.UserID equals user.UserID
+                             where worker.Status== false
+                             orderby compensation.CompensationDate descending
                              select new WorkerCompensationDto
                              {
                                  WorkerID = compensation.WorkerID,
-                                 DepartmentTypeID = worker.DepartmentTypeID,
-                                 DepartmentTypeName = department.DepartmentTypeName,
                                  WorkerName = worker.WorkerName,
                                  WorkerSurname = worker.WorkerSurname,
                                  CompensationID = compensation.CompensationID,
@@ -34,27 +33,28 @@ namespace DataAccess.Concrete.EntityFramework
                                  DailyWorkingTime = worker.DailyWorkingTime,
                                  HourSalary = worker.HourSalary,
                                  StartDate = worker.StartTime,
+                                 UserID = user.UserID,
+                                 Name = user.Name,
+                                 Surname = user.Surname
                              };
                 return result.ToList();
             }
         }
 
-        public WorkerCompensationDto GetWorkerCompensation(int workerID)
+        public List<WorkerCompensationDto> GetByUserID(int userID)
         {
             using (DatabaseContext db = new DatabaseContext())
             {
                 var result = from compensation in db.Compensations
                              join worker in db.Workers on
                              compensation.WorkerID equals worker.WorkerID
-                             join department in db.DepartmentTypes on
-                             worker.DepartmentTypeID equals department.DepartmentTypeID
-                             orderby compensation.CompensationDate ascending
-                             where compensation.WorkerID == workerID
+                             join user in db.Users on
+                            compensation.UserID equals user.UserID
+                             orderby compensation.CompensationDate descending
+                             where compensation.UserID == userID && worker.Status == false
                              select new WorkerCompensationDto
                              {
                                  WorkerID = compensation.WorkerID,
-                                 DepartmentTypeID = worker.DepartmentTypeID,
-                                 DepartmentTypeName = department.DepartmentTypeName,
                                  WorkerName = worker.WorkerName,
                                  WorkerSurname = worker.WorkerSurname,
                                  CompensationID = compensation.CompensationID,
@@ -63,6 +63,39 @@ namespace DataAccess.Concrete.EntityFramework
                                  DailyWorkingTime = worker.DailyWorkingTime,
                                  HourSalary = worker.HourSalary,
                                  StartDate = worker.StartTime,
+                                 UserID = user.UserID,
+                                 Name = user.Name,
+                                 Surname = user.Surname
+                             };
+                return result.ToList();
+            }
+        }
+
+        public WorkerCompensationDto GetByWorkerID(int workerID)
+        {
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                var result = from compensation in db.Compensations
+                             join worker in db.Workers on
+                             compensation.WorkerID equals worker.WorkerID
+                             join user in db.Users on
+                            compensation.UserID equals user.UserID
+                             orderby compensation.CompensationDate descending
+                             where compensation.WorkerID == workerID && worker.Status == false
+                             select new WorkerCompensationDto
+                             {
+                                 WorkerID = compensation.WorkerID,                                 
+                                 WorkerName = worker.WorkerName,
+                                 WorkerSurname = worker.WorkerSurname,
+                                 CompensationID = compensation.CompensationID,
+                                 CompensationAmount = compensation.CompensationAmount,
+                                 CompensationDate = compensation.CompensationDate,
+                                 DailyWorkingTime = worker.DailyWorkingTime,
+                                 HourSalary = worker.HourSalary,
+                                 StartDate = worker.StartTime,
+                                 UserID = user.UserID,
+                                 Name = user.Name,
+                                 Surname = user.Surname
                              };
                 return result.SingleOrDefault();
             }

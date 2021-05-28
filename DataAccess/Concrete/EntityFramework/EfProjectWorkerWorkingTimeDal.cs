@@ -11,7 +11,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfProjectWorkerWorkingTimeDal : EfEntityRepositoryBase<ProjectWorkerWorkingTime, DatabaseContext>, IProjectWorkerWorkingTimeDal
     {
-        public List<ProjectWorkerWorkingTimeDto> GetAll()
+        public List<ProjectWorkerWorkingTimeDto> GetByProjectWorkerID(int projectWorkerID)
         {
             using (DatabaseContext db = new DatabaseContext())
             {
@@ -20,10 +20,15 @@ namespace DataAccess.Concrete.EntityFramework
                              pwwt.ProjectWorkerID equals projectworker.ProjectWorkerID
                              join worker in db.Workers on
                              projectworker.WorkerID equals worker.WorkerID
+                             join projectsectiondepartment in db.ProjectSectionDepartments on
+                             projectworker.ProjectSectionDepartmentID equals projectsectiondepartment.ProjectSectionDepartmentID
+                             join projectsection in db.ProjectSections on
+                            projectsectiondepartment.ProjectSectionID equals projectsection.ProjectSectionID
                              join project in db.Projects on
-                             projectworker.ProjectID equals project.ProjectID
-                             join manager in db.ProjectManagers on
-                             project.ManagerID equals manager.ManagerID
+                             projectsection.ProjectID equals project.ProjectID
+                             join department in db.DepartmentTypes on
+                             projectsectiondepartment.DepartmentTypeID equals department.DepartmentTypeID
+                             where projectworker.ProjectWorkerID == projectWorkerID
                              select new ProjectWorkerWorkingTimeDto
                              {
                                  ProjectWorkerWorkingTimeID = pwwt.ProjectWorkerWorkingTimeID,
@@ -34,12 +39,54 @@ namespace DataAccess.Concrete.EntityFramework
                                  DailyStartHour = pwwt.DailyStartHour,
                                  DailyFinishHour = pwwt.DailyFinishHour,
                                  Date = pwwt.Date,
-                                 ProjectID = projectworker.ProjectID,
+                                 DepartmentTypeID = projectsectiondepartment.DepartmentTypeID,
+                                 DepartmentTypeName = department.DepartmentTypeName,
+                                 ProjectSectionDepartmentID = projectworker.ProjectSectionDepartmentID,
+                                 ProjectSectionID = projectsectiondepartment.ProjectSectionID,
+                                 ProjectSectionName = projectsection.ProjectSectionName,
+                                 ProjectID = project.ProjectID,
                                  ProjectName = project.ProjectName,
-                                 Subject = project.Subject,
-                                 ManagerID = project.ManagerID,
-                                 ManagerName = manager.ManagerName,
-                                 ManagerSurname = manager.ManagerSurname
+
+                             };
+                return result.ToList();
+            }
+        }
+
+        public List<ProjectWorkerWorkingTimeDto> GetAll()
+        {
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                var result = from pwwt in db.ProjectWorkerWorkingTimes
+                             join projectworker in db.ProjectWorkers on
+                             pwwt.ProjectWorkerID equals projectworker.ProjectWorkerID
+                             join worker in db.Workers on
+                             projectworker.WorkerID equals worker.WorkerID
+                             join projectsectiondepartment in db.ProjectSectionDepartments on
+                             projectworker.ProjectSectionDepartmentID equals projectsectiondepartment.ProjectSectionDepartmentID
+                             join projectsection in db.ProjectSections on
+                            projectsectiondepartment.ProjectSectionID equals projectsection.ProjectSectionID
+                             join project in db.Projects on
+                             projectsection.ProjectID equals project.ProjectID
+                             join department in db.DepartmentTypes on
+                             projectsectiondepartment.DepartmentTypeID equals department.DepartmentTypeID
+                             select new ProjectWorkerWorkingTimeDto
+                             {
+                                 ProjectWorkerWorkingTimeID = pwwt.ProjectWorkerWorkingTimeID,
+                                 ProjectWorkerID = projectworker.ProjectWorkerID,
+                                 WorkerID = projectworker.WorkerID,
+                                 WorkerName = worker.WorkerName,
+                                 WorkerSurname = worker.WorkerSurname,
+                                 DailyStartHour = pwwt.DailyStartHour,
+                                 DailyFinishHour = pwwt.DailyFinishHour,
+                                 Date = pwwt.Date,
+                                 DepartmentTypeID = projectsectiondepartment.DepartmentTypeID,
+                                 DepartmentTypeName = department.DepartmentTypeName,
+                                 ProjectSectionDepartmentID = projectworker.ProjectSectionDepartmentID,
+                                 ProjectSectionID = projectsectiondepartment.ProjectSectionID,
+                                 ProjectSectionName = projectsection.ProjectSectionName,
+                                 ProjectID = project.ProjectID,
+                                 ProjectName = project.ProjectName,
+
                              };
                 return result.ToList();
             }

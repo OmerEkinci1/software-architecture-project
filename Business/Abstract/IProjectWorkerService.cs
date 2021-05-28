@@ -9,11 +9,12 @@ namespace Business.Abstract
 {
     public interface IProjectWorkerService
     {
-        IResult Add(ProjectWorkersDto projectWorkersDto);
-        IResult Delete(ProjectWorkersDto projectWorkersDto);
-        IResult Update(ProjectWorkersDto projectWorkersDto);
-
-        IDataResult<List<ProjectWorkersDto>> GetAll();
-        IDataResult<ProjectWorkersDto> Get(int args);
+        IResult Add(ProjectWorker projectWorkers);
+        IResult Delete(ProjectWorker projectWorkers);
+        IResult Update(ProjectWorker projectWorkers);
+        IDataResult<List<ProjectWorkerGeneralDto>> GetAll();
+        IDataResult<ProjectWorkerGeneralDto> GetByProjectSectionDepartmentID(int projectSectionDepartmentID);
+        IDataResult<List<ProjectWorkerGeneralDto>> GetByWorkerID(int workerID); 
+        IDataResult<ProjectWorker> GetByID(int projectWorkerID);
     }
 }

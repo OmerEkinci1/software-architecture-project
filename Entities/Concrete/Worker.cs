@@ -7,8 +7,11 @@ namespace Entities.Concrete
 {
     public class Worker : IEntity
     {
+        public Worker()
+        {
+            StartTime = DateTime.Now;
+        }
         public int WorkerID { get; set; }
-        public Byte DepartmentTypeID { get; set; }
         public string WorkerName { get; set; }
         public string WorkerSurname { get; set; }
         public int DailyWorkingTime { get; set; }

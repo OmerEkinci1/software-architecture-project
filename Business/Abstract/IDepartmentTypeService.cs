@@ -10,9 +10,6 @@ namespace Business.Abstract
     {
         IResult Add(DepartmentType departmentType);
         IResult Update(DepartmentType departmentType);
-        IResult Delete(DepartmentType departmentType);
-
-        IDataResult<DepartmentType> Get(int departmentTypeID);
         IDataResult<List<DepartmentType>> GetAll();
     }
 }
