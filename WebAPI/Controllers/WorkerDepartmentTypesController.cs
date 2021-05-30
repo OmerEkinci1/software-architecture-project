@@ -43,7 +43,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getall")]
-        public ActionResult GetAll(int departmentTypeID)
+        public ActionResult GetAll()
         {
             var result = _workerDepartmentTypeService.GetAll();
             if (result.Data != null)

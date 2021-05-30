@@ -37,6 +37,9 @@ namespace DataAccess.Concrete.EntityFramework
                              uop.OperationClaimID equals o.OperationClaimID
                              select new UserOperationClaimDto
                              {
+                                 UserID = us.UserID,
+                                 OperationClaimID = o.OperationClaimID,
+                                 UserOperationClaimID = uop.UserOperationClaimID,
                                  UserName = us.Name,
                                  UserSurname = us.Surname,
                                  OperationClaimName = o.OperationClaimName,

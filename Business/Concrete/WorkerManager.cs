@@ -54,7 +54,7 @@ namespace Business.Concrete
         public IResult Delete(Worker worker)
         {
             worker.Status = false;
-            var result=Update(worker);
+            var result= UpdateStatus(worker);
             if (result.Success)
             {
                 return new SuccessResult(Messages.WorkerDeleted);
@@ -78,9 +78,24 @@ namespace Business.Concrete
             return new SuccessDataResult<Worker>(_workerDal.Get(w => w.WorkerID == workerID));
         }
 
-        public IResult Update(Worker worker)
+        public IResult UpdateStatus(Worker worker)
         {
             _workerDal.Update(worker);
+            return new SuccessResult(Messages.WorkerUpdated);
+        }
+
+        public IResult Update(WorkerDto workerDto)
+        {
+
+            var workerMapper = _mapper.Map<Worker>(workerDto);
+
+            _workerDepartmentTypeService.DeleteAllDepartmentByWorkerID(workerDto.WorkerID);
+            foreach (var departmentType in workerDto.DepartmentTypes)
+            {
+                WorkerDepartmentType workerDepartmentType = new WorkerDepartmentType { DepartmentTypeID = departmentType.DepartmentTypeID, WorkerID = workerMapper.WorkerID };
+                _workerDepartmentTypeService.Add(workerDepartmentType);
+            }
+            _workerDal.Update(workerMapper);
             return new SuccessResult(Messages.WorkerUpdated);
         }
     }

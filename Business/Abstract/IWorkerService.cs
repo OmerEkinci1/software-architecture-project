@@ -10,7 +10,7 @@ namespace Business.Abstract
     public interface IWorkerService
     {
         IResult Add(WorkerCreationDto workerCreationDto);
-        IResult Update(Worker worker);
+        IResult Update(WorkerDto workerDto);
         IResult Delete(Worker worker);        
         IDataResult<List<WorkerDto>> GetAll();
         IDataResult<Worker> GetByID(int workerID);

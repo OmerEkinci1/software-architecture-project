@@ -14,5 +14,6 @@ namespace Business.Abstract
         IDataResult<List<WorkerDepartmentDto>> GetAllByDepartmentTypeID(int departmentTypeID);
         IDataResult<List<WorkerDepartmentDto>> GetAll();
         IDataResult<List<WorkerDepartmentType>> GetByWorkerID(int workerID);
+        IResult DeleteAllDepartmentByWorkerID(int workerID);
     }
 }

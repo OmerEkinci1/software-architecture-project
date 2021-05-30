@@ -29,7 +29,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  HourSalary = worker.HourSalary,
                                  StartTime = worker.StartTime,
                                  Status = worker.Status,
-                                 DepartmentTypes = db.DepartmentTypes.ToList(),
+                                 DepartmentTypes = db.DepartmentTypes.Where(d=>d.DepartmentTypeID==wdt.DepartmentTypeID).ToList(),
 
                              };
                 return result.ToList();

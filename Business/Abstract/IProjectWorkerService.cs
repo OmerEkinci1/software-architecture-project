@@ -10,7 +10,7 @@ namespace Business.Abstract
     public interface IProjectWorkerService
     {
         IResult Add(ProjectWorker projectWorkers);
-        IResult Delete(ProjectWorker projectWorkers);
+        IResult Delete(int projectWorkerID);
         IResult Update(ProjectWorker projectWorkers);
         IDataResult<List<ProjectWorkerGeneralDto>> GetAll();
         IDataResult<ProjectWorkerGeneralDto> GetByProjectSectionDepartmentID(int projectSectionDepartmentID);

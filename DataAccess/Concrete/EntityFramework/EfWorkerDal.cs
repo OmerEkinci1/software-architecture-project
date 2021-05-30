@@ -16,6 +16,8 @@ namespace DataAccess.Concrete.EntityFramework
             using (DatabaseContext db = new DatabaseContext())
             {
                 var result = from worker in db.Workers
+                             join user in db.Users on 
+                             worker.UserID equals user.UserID
                              where worker.Status == true
                              select new WorkerDto
                              {
@@ -23,10 +25,12 @@ namespace DataAccess.Concrete.EntityFramework
                                  WorkerName = worker.WorkerName,
                                  WorkerSurname = worker.WorkerSurname,
                                  DailyWorkingTime = worker.DailyWorkingTime,
+                                 UserID = user.UserID,
+                                 Name = user.Name,                               
                                  HourSalary = worker.HourSalary,
                                  StartTime = worker.StartTime,
                                  Status = worker.Status,
-                                 DepartmentType=db.DepartmentTypes.Where(d=>db.WorkerDepartmentTypes.Where(wd=>wd.WorkerID==worker.WorkerID).Select(p=>p.DepartmentTypeID).Contains(d.DepartmentTypeID)).ToList()                                
+                                 DepartmentTypes=db.DepartmentTypes.Where(d=>db.WorkerDepartmentTypes.Where(wd=>wd.WorkerID==worker.WorkerID).Select(p=>p.DepartmentTypeID).Contains(d.DepartmentTypeID)).ToList()                                
 
 
                              };
@@ -44,6 +48,7 @@ namespace DataAccess.Concrete.EntityFramework
                              {
                                  WorkerID = worker.WorkerID,
                                  WorkerName = worker.WorkerName,
+                                 UserID = worker.UserID,
                                  WorkerSurname = worker.WorkerSurname,
                                  DailyWorkingTime = worker.DailyWorkingTime,
                                  HourSalary = worker.HourSalary,
