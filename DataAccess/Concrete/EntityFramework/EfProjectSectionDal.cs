@@ -35,5 +35,28 @@ namespace DataAccess.Concrete.EntityFramework
         //        return result.ToList();
         //    }
         //}
+        public List<ProjectSectionDto> GetAll()
+        {
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                var result = from projectsection in db.ProjectSections
+                             join project in db.Projects on
+                             projectsection.ProjectID equals project.ProjectID
+                             where projectsection.Status==true
+                             select new ProjectSectionDto
+                             {
+                                 ProjectSectionID = projectsection.ProjectSectionID,
+                                 ProjectSectionName = projectsection.ProjectSectionName,
+                                 ProjectID = project.ProjectID,
+                                 ProjectName = project.ProjectName,
+                                 SectionProjectTime = projectsection.SectionProjectTime,
+                                 RemainingSectionTime = projectsection.RemainingSectionTime,
+                                 WorkerCount = projectsection.WorkerCount,
+                                 Status= projectsection.Status
+
+                             };
+                return result.ToList();
+            }
+        }
     }
 }

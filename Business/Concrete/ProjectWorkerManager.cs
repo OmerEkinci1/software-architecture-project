@@ -183,8 +183,6 @@ namespace Business.Concrete
         }
 
 
-
-
         private IResult CheckProjectWorkerCapacityIsFull(ProjectDetailDto getProject)
         {
             if (getProject.MaxWorkerCount == getProject.ActiveWorkerCount)

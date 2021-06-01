@@ -43,9 +43,6 @@ namespace Business.Concrete
                     ProjectID = project.ProjectID,
                     ProjectSectionName = projectSection.ProjectSectionName,
                     SectionProjectTime = projectSection.SectionProjectTime,
-                    RemainingSectionTime = projectSection.SectionProjectTime,
-                    WorkerCount = 0,
-                    Status = true
                 };
                 _projectSectionService.Add(psection);
 

@@ -48,6 +48,7 @@ namespace WebAPI.Controllers
         [HttpPost("update")]
         public ActionResult Update(Project project)
         {
+            project.Status = true;
             var result = _projectService.Update(project);
             if (result.Success)
             {

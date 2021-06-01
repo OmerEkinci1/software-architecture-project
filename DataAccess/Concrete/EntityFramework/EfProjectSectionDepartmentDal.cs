@@ -22,7 +22,7 @@ namespace DataAccess.Concrete.EntityFramework
                              psd.ProjectSectionID equals ps.ProjectSectionID
                              join project in db.Projects on
                              ps.ProjectID equals project.ProjectID
-                             where psd.Status == true
+                             where psd.Status == true && ps.Status == true
                              select new ProjectSectionDepartmentDto
                              {
                                  ProjectSectionDepartmentID = psd.ProjectSectionDepartmentID,

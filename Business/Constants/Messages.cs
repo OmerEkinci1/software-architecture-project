@@ -62,12 +62,13 @@ namespace Business.Constants
         public static string DepartmentAlreadyExistInSection = "Department already exist in this section";
         public static string NotDeleteWorker = "Worker not delted";
         public static string ProjectNotDeleted = "Project not deleted";
-        public static string WorkerNotHaveSkill="Worker not have skill";
+        public static string WorkerNotHaveSkill="Worker cannot take this duty, because he is not have this skill.";
         public static string ProjectWorkerCapacityMaximum="Worker capacity maximum";
         public static string ProjectWorkerCapacityMinimum="Worker capacity minimum";
         public static string AddedProjectWorkerWorkingTime="Worker project working time, poject can leave from company.";
         public static string UpdatedProjectWorkerWorkingTime="Project worker working time updated.";
         public static string CanNotUpdatedWorkingTime = "Project worker working time cannot updated";
         public static string UserHasAlreadyOperationClaim="User Already Has That Operation Claim";
+        public static string SalaryAlreadyExistThisMonth="Worker Has Already Take Money For This Month";
     }
 }

@@ -20,14 +20,17 @@ namespace Business.Concrete
             _projectSectionDal = projectSectionDal;
         }
 
-        public IResult Add(ProjectSection projectSections)
+        public IResult Add(ProjectSection projectSection)
         {
-            IResult result = BusinessRules.Run(CheckIfSectionNameAlreadyExistInProject(projectSections));
+            IResult result = BusinessRules.Run(CheckIfSectionNameAlreadyExistInProject(projectSection));
             if (result!=null)
             {
                 return result;
             }
-            _projectSectionDal.Add(projectSections);
+            projectSection.RemainingSectionTime = projectSection.SectionProjectTime;
+            projectSection.WorkerCount = 0;
+            projectSection.Status = true;
+            _projectSectionDal.Add(projectSection);
             return new SuccessResult(Messages.ProjectSectionAdded);
         }
 
@@ -55,6 +58,11 @@ namespace Business.Concrete
         public IDataResult<ProjectSection> GetBySectionID(int sectionID)
         {
             return new SuccessDataResult<ProjectSection>(_projectSectionDal.Get(p => p.ProjectSectionID == sectionID && p.Status == true));
+        }
+
+        public IDataResult<List<ProjectSectionDto>> GetAll()
+        {
+            return new SuccessDataResult<List<ProjectSectionDto>>(_projectSectionDal.GetAll());
         }
 
         //public IDataResult<List<ProjectSectionDto>> GetByUserID(int userID)
