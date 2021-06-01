@@ -6776,7 +6776,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ekinc\\.nuget\\packages\\": {}
+    "C:\\Users\\Omer\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -6784,11 +6784,11 @@
       "projectUniqueName": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj",
       "projectName": "Core",
       "projectPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj",
-      "packagesPath": "C:\\Users\\ekinc\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Omer\\.nuget\\packages\\",
       "outputPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ekinc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Omer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6863,7 +6863,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

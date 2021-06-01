@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -21,9 +22,16 @@ namespace Business.Concrete
 
         public IResult Add(Salary salary)
         {
+            IResult result = BusinessRules.Run(CheckWorkerHaveSalaryThisMonth(salary));
+            if (result!=null)
+            {
+                return result;
+            }
+
             _salaryDal.Add(salary);
             return new SuccessResult(Messages.SalaryAdded);
         }
+
         public IResult Update(Salary salary)
         {
             _salaryDal.Update(salary);
@@ -44,6 +52,27 @@ namespace Business.Concrete
             return new SuccessDataResult<WorkerSalaryDto>(_salaryDal.GetWorkerID(workerID));
         }
 
+
+        private IResult CheckWorkerHaveSalaryThisMonth(Salary salary)
+        {
+            var getLastSalary = _salaryDal.GetWorkerID(salary.WorkerID).SalaryDate;
+            var a = Convert.ToDateTime(salary.SalaryDate);
+            var b = Convert.ToDateTime(getLastSalary);
+            var x = (a - b).Days;
+            if (x>= 30)
+            {
+                Salary salaryNew = new Salary
+                {
+                    UserID = salary.UserID,
+                    WorkerID = salary.WorkerID,
+                    SalaryAmount = salary.SalaryAmount
+                };
+                _salaryDal.Add(salaryNew);
+                return new SuccessResult(Messages.SalaryAdded);
+            }
+            return new ErrorResult(Messages.SalaryAlreadyExistThisMonth);
+
+        }
 
     }
 }

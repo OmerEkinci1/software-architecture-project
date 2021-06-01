@@ -11,6 +11,22 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfUserDal : EfEntityRepositoryBase<User, DatabaseContext>, IUserDal
     {
+        public List<User> GetAllUserByStatusTrue()
+        {
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                var result = from user in db.Users
+                             where user.Status == true && user.DepartmentTypeID == 3
+                             select new User
+                             {
+                                 UserID = user.UserID,
+                                 Name = user.Name,
+                                 Surname = user.Surname
+                             };
+                return result.ToList();
+            }
+        }
+
         public UserDto GetUserID(int userID)
         {
             using (DatabaseContext db=new DatabaseContext())

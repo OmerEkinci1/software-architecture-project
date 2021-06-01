@@ -11,7 +11,8 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-8A6F159\SQLEXPRESS;Database=YazılımMimarisi;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-9HB05L6;Database=YazılımMimarisi;Integrated Security=True");
+
         }
 
         public DbSet<Compensation> Compensations { get; set; }

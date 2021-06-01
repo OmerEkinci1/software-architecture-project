@@ -35,6 +35,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<WorkerSalaryExperienceDto>>(_workerSalaryExperienceDal.GetByDepartmentTypeID(departmentTypeID));
         }
 
-
+        public IDataResult<List<WorkerSalaryExperienceDto>> GetAll()
+        {
+            return new SuccessDataResult<List<WorkerSalaryExperienceDto>>(_workerSalaryExperienceDal.GetAll());
+        }
     }
 }

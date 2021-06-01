@@ -1,4 +1,5 @@
 ﻿using Core.Entites;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,5 +18,6 @@ namespace Entities.DTOs
         public decimal HourSalary { get; set; }
         public int UserID { get; set; }
         public DateTime StartTime { get; set; }
+        public List<DepartmentType> DepartmentTypes { get; set; }
     }
 }

@@ -31,6 +31,21 @@ namespace Business.Concrete
             return new SuccessResult(Messages.WorkerDepartmentTypeDeleted);
         }
 
+        public IResult DeleteAllDepartmentByWorkerID(int workerID)
+        {
+            var getDepartments = GetByWorkerID(workerID).Data;
+            foreach (var department in getDepartments)
+            {
+                Delete(department);
+            }
+            return new SuccessResult();
+        }
+
+        public IDataResult<List<WorkerDepartmentDto>> GetAll()
+        {
+            return new SuccessDataResult<List<WorkerDepartmentDto>>(_workerDepartmentTypeDal.GetAll());
+        }
+
         public IDataResult<List<WorkerDepartmentDto>> GetAllByDepartmentTypeID(int departmentTypeID)
         {
             return new SuccessDataResult<List<WorkerDepartmentDto>>(_workerDepartmentTypeDal.GetAllByDepartmentTypeID(departmentTypeID));

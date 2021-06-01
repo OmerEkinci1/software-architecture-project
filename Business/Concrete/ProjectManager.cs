@@ -25,15 +25,18 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ProjectAdded);
         }
 
-        public IResult Delete(Project project)
+        public IResult Delete(int projectID)
         {
-            //project = _projectDal.Get(p => p.ProjectID == project.ProjectID);
+            var project = _projectDal.Get(p => p.ProjectID == projectID);
             project.Status = false;
             _projectDal.Update(project);
             return new SuccessResult(Messages.ProjectDeleted);
         }
         public IResult Update(Project project)
         {
+            var getProject = GetByID(project.ProjectID).Data;
+            project.RemainingProjectTime = getProject.RemainingProjectTime;
+            project.ActiveWorkerCount = getProject.ActiveWorkerCount;
             _projectDal.Update(project);
             return new SuccessResult(Messages.ProjectUpdated);
         }

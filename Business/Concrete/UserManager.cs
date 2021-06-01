@@ -28,12 +28,22 @@ namespace Business.Concrete
 
         public IResult Delete(User user)
         {
+            var getUser = GetByMail(user.Email).Data;
+            user.DepartmentTypeID = getUser.DepartmentTypeID;
+            user.PasswordHash = getUser.PasswordHash;
+            user.PasswordSalt = getUser.PasswordSalt;
             user.Status = false;            
             _userDal.Update(user);
             return new SuccessResult(Messages.UserDeleted);
         }
         public IResult Update(User user)
         {
+            var getUser = GetByMail(user.Email).Data;
+            user.DepartmentTypeID = getUser.DepartmentTypeID;
+            user.PasswordHash = getUser.PasswordHash;
+            user.PasswordSalt = getUser.PasswordSalt;
+            user.Status = getUser.Status;
+       
             _userDal.Update(user);
             return new SuccessResult(Messages.UserUpdated);
         }
@@ -47,6 +57,11 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<UserDto>(_userDal.GetUserID(userID));
 
+        }
+
+        public IDataResult<List<User>> GetUserByStatusTrue()
+        {
+            return new SuccessDataResult<List<User>>(_userDal.GetAllUserByStatusTrue());
         }
     }
 }

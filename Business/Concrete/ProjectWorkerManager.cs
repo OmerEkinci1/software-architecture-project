@@ -59,9 +59,10 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ProjectWorkerAdded);
         }
 
-        public IResult Delete(ProjectWorker projectWorkers)
+        public IResult Delete(int projectWorkerID)
         {
-            var getDepartmentTypeInSection = _projectSectionDepartmentService.GetByID(projectWorkers.ProjectSectionDepartmentID).Data;
+            var getProjectWorker = GetByID(projectWorkerID).Data;
+            var getDepartmentTypeInSection = _projectSectionDepartmentService.GetByID(getProjectWorker.ProjectSectionDepartmentID).Data;
             var getProjectSection = _projectSectionService.GetBySectionID(getDepartmentTypeInSection.ProjectSectionID).Data;
             var getProject = _projectService.GetByID(getProjectSection.ProjectID).Data;
 
@@ -72,8 +73,8 @@ namespace Business.Concrete
                 return result;
             }
 
-            projectWorkers.Status = false;
-            _projectWorkerDal.Update(projectWorkers);
+            getProjectWorker.Status = false;
+            _projectWorkerDal.Update(getProjectWorker);
 
             getProject.ActiveWorkerCount -= 1;
             var getProjectMapper = _mapper.Map<Project>(getProject);
@@ -180,8 +181,6 @@ namespace Business.Concrete
 
             return projectWorkerGeneralDtos;
         }
-
-
 
 
         private IResult CheckProjectWorkerCapacityIsFull(ProjectDetailDto getProject)

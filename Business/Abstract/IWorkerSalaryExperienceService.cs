@@ -12,5 +12,6 @@ namespace Business.Abstract
         IResult Add(WorkerSalaryExperience workerSalaryExperience);
         IResult Update(WorkerSalaryExperience workerSalaryExperience);
         IDataResult<List<WorkerSalaryExperienceDto>> GetByDepartmentTypeID(int departmentTypeID);
+        IDataResult<List<WorkerSalaryExperienceDto>> GetAll();
     }
 }

@@ -10,11 +10,11 @@
         "projectUniqueName": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj",
         "projectName": "Core",
         "projectPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\ekinc\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Omer\\.nuget\\packages\\",
         "outputPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ekinc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Omer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,7 +89,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -99,11 +99,11 @@
         "projectUniqueName": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
         "projectPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\ekinc\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Omer\\.nuget\\packages\\",
         "outputPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ekinc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Omer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -157,7 +157,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -167,11 +167,11 @@
         "projectUniqueName": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Entities\\Entities.csproj",
         "projectName": "Entities",
         "projectPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\ekinc\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Omer\\.nuget\\packages\\",
         "outputPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ekinc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Omer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -201,6 +201,10 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "FluentNHibernate": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
@@ -218,7 +222,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

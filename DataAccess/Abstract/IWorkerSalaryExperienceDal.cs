@@ -10,5 +10,6 @@ namespace DataAccess.Abstract
     public interface IWorkerSalaryExperienceDal : IEntityRepository<WorkerSalaryExperience>
     {
         List<WorkerSalaryExperienceDto> GetByDepartmentTypeID(int departmentTypeID);
+        List<WorkerSalaryExperienceDto> GetAll();
     }
 }

@@ -49,6 +49,11 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ProjectSectionDepartmentUpdate);
         }
 
+        public IDataResult<List<ProjectSectionDepartmentDto>> GetAll()
+        {
+            return new SuccessDataResult<List<ProjectSectionDepartmentDto>>(_projectSectionDepartmentDal.GetAll());
+        }
+
         //public IDataResult<List<ProjectSectionDepartmentDto>> GetByProjectID(int projectID)
         //{
         //    return new SuccessDataResult<List<ProjectSectionDepartmentDto>>(_projectSectionDepartmentDal.GetByProjectID(projectID));
@@ -82,6 +87,6 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-       
+        
     }
 }

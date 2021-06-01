@@ -12,6 +12,7 @@ namespace Entities.Concrete
             StartTime = DateTime.Now;
         }
         public int WorkerID { get; set; }
+        public int UserID { get; set; }
         public string WorkerName { get; set; }
         public string WorkerSurname { get; set; }
         public int DailyWorkingTime { get; set; }

@@ -14,6 +14,7 @@ namespace Business.Abstract
         IResult Delete(ProjectSectionDepartment projectSectionDepartment);
         //IDataResult<List<ProjectSectionDepartmentDto>> GetByProjectID(int projectID);
         IDataResult<List<ProjectSectionDepartmentDto>> GetBySectionID(int sectionID);
+        IDataResult<List<ProjectSectionDepartmentDto>> GetAll();
         IDataResult<ProjectSectionDepartmentDto> GetByID(int projectSectionDepartmentID);
         //IDataResult<List<ProjectSectionDepartmentDto>> GetByUserID(int userID);
 

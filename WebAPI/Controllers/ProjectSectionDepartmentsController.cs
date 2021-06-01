@@ -85,5 +85,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getall")]
+        public ActionResult GetAll()
+        {
+            var result = _projectSectionDepartmentService.GetAll();
+            if (result.Data != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

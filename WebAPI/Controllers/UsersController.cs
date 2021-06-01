@@ -56,5 +56,18 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
+
+        [HttpGet("getalluserbystatustrue")]
+        public IActionResult GetAllUserByStatusTrue()
+        {
+            var result = _userService.GetUserByStatusTrue();
+
+            if (result.Data != null)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
     }
 }
