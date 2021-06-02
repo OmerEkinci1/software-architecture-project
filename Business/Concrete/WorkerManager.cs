@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -63,16 +64,19 @@ namespace Business.Concrete
             return new ErrorResult(Messages.NotDeleteWorker);
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<WorkerDto>> GetAll()
         {
             return new SuccessDataResult<List<WorkerDto>>(_workerDal.GetAllWorker());
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<Worker>> GetAllWorkersByStatusFalse()
         {
             return new SuccessDataResult<List<Worker>>(_workerDal.GetAllWorkerByStatusFalse());
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<Worker> GetByID(int workerID)
         {
             return new SuccessDataResult<Worker>(_workerDal.Get(w => w.WorkerID == workerID));

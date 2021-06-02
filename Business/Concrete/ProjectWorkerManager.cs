@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -103,7 +104,7 @@ namespace Business.Concrete
         }
 
 
-
+        [CacheAspect(duration: 10)]
         public IDataResult<List<ProjectWorkerGeneralDto>> GetAll()
         {
             var getProjectWorkers = _projectWorkerDal.GetAll();
@@ -111,12 +112,13 @@ namespace Business.Concrete
             return new SuccessDataResult<List<ProjectWorkerGeneralDto>>(projectWorkerGeneralDtos);
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<ProjectWorker> GetByID(int projectWorkerID)
         {
             return new SuccessDataResult<ProjectWorker>(_projectWorkerDal.Get(p=>p.ProjectWorkerID==projectWorkerID));
         }
 
-
+        [CacheAspect(duration: 10)]
         public IDataResult<ProjectWorkerGeneralDto> GetByProjectSectionDepartmentID(int projectSectionDepartmentID)
         {
 
@@ -141,7 +143,7 @@ namespace Business.Concrete
         }
 
 
-
+        [CacheAspect(duration: 10)]
         public IDataResult<List<ProjectWorkerGeneralDto>> GetByWorkerID(int workerID)
         {
             var getProjectWorkers = _projectWorkerDal.GetByWorkerID(workerID);

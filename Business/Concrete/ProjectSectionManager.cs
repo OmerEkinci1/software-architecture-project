@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -51,15 +52,19 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ProjectSectionUpdated);
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<ProjectSection>> GetByProjectID(int projectID)
         {
             return new SuccessDataResult<List<ProjectSection>>(_projectSectionDal.GetAll(p=>p.ProjectID==projectID));
         }
+
+        [CacheAspect(duration: 10)]
         public IDataResult<ProjectSection> GetBySectionID(int sectionID)
         {
             return new SuccessDataResult<ProjectSection>(_projectSectionDal.Get(p => p.ProjectSectionID == sectionID && p.Status == true));
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<ProjectSectionDto>> GetAll()
         {
             return new SuccessDataResult<List<ProjectSectionDto>>(_projectSectionDal.GetAll());

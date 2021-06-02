@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Entites.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -48,17 +49,20 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UserUpdated);
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<User> GetByMail(string email)
         {
             return new SuccessDataResult<User>(_userDal.Get(u => u.Email == email && u.Status == true));
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<UserDto> GetById(int userID)
         {
             return new SuccessDataResult<UserDto>(_userDal.GetUserID(userID));
 
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<User>> GetUserByStatusTrue()
         {
             return new SuccessDataResult<List<User>>(_userDal.GetAllUserByStatusTrue());

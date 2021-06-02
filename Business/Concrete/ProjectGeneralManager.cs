@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Entites.Concrete;
 using Core.Utilities.Results;
 using Entities.Concrete;
@@ -75,6 +76,8 @@ namespace Business.Concrete
             }
             return new ErrorResult(Messages.ProjectNotDeleted);
         }
+
+        [CacheAspect(duration: 10)]
         public IDataResult<ProjectGeneralDto> GetProjectByProjectID(int projectID)
         {
             var getProject = _projectService.GetByID(projectID).Data;

@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -30,6 +31,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.DepartmentAdded);
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<DepartmentType>> GetAll()
         {
             return new SuccessDataResult<List<DepartmentType>>(_departmentTypeDal.GetAll());
