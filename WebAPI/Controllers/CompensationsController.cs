@@ -64,6 +64,21 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("suggestion")]
+        public ActionResult Suggestion(int workerID)
+        {
+            if (workerID == 0)
+            {
+                return BadRequest();
+            }
+            var result = _compensationService.SuggestionByWorkerID(workerID);         
+            if (result.Data != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         [HttpGet("getbyuserid")]
         public ActionResult GetByUserID(Compensation compensation)
         {

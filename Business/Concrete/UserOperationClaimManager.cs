@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Entites.Concrete;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
@@ -39,11 +40,13 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UserOperationClaimDeleted);
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<UserOperationClaimDto>> GetAllUserClaims()
         {
             return new SuccessDataResult<List<UserOperationClaimDto>>(_userOperationClaimDal.GetAllUserOperationClaim());
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<OperationClaim>> GetClaims(User user)
         {
             return new SuccessDataResult<List<OperationClaim>>(_userOperationClaimDal.GetClaims(user));

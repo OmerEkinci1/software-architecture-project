@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -37,16 +38,20 @@ namespace Business.Concrete
             _salaryDal.Update(salary);
             return new SuccessResult(Messages.SalaryUpdated);
         }
+
+        [CacheAspect(duration: 10)]
         public IDataResult<List<WorkerSalaryDto>> GetAll()
         {
             return new SuccessDataResult<List<WorkerSalaryDto>>(_salaryDal.GetAll());
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<WorkerSalaryDto>> GetByUserID(int userID)
         {
             return new SuccessDataResult<List<WorkerSalaryDto>>(_salaryDal.GetByUserID(userID));
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<WorkerSalaryDto> GetByWorkerID(int workerID)
         {
             return new SuccessDataResult<WorkerSalaryDto>(_salaryDal.GetWorkerID(workerID));
