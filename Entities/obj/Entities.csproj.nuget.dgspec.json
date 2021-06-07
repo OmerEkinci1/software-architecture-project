@@ -1,26 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Entities\\Entities.csproj": {}
+    "C:\\Users\\engin\\source\\repos\\YazılımMimarisi\\software-architecture-project\\Entities\\Entities.csproj": {}
   },
   "projects": {
-    "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj": {
+    "C:\\Users\\engin\\source\\repos\\YazılımMimarisi\\software-architecture-project\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\engin\\source\\repos\\YazılımMimarisi\\software-architecture-project\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\ekinc\\.nuget\\packages\\",
-        "outputPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\obj\\",
+        "projectPath": "C:\\Users\\engin\\source\\repos\\YazılımMimarisi\\software-architecture-project\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\engin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\engin\\source\\repos\\YazılımMimarisi\\software-architecture-project\\Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ekinc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\engin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 18.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -89,27 +94,32 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Entities\\Entities.csproj": {
+    "C:\\Users\\engin\\source\\repos\\YazılımMimarisi\\software-architecture-project\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\engin\\source\\repos\\YazılımMimarisi\\software-architecture-project\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\ekinc\\.nuget\\packages\\",
-        "outputPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Entities\\obj\\",
+        "projectPath": "C:\\Users\\engin\\source\\repos\\YazılımMimarisi\\software-architecture-project\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\engin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\engin\\source\\repos\\YazılımMimarisi\\software-architecture-project\\Entities\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ekinc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\engin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\DevExpress 18.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -117,8 +127,8 @@
           "netstandard2.0": {
             "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj": {
-                "projectPath": "D:\\Program Files\\Git Uploads\\software-architecture-project\\software-architecture-project\\Core\\Core.csproj"
+              "C:\\Users\\engin\\source\\repos\\YazılımMimarisi\\software-architecture-project\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\engin\\source\\repos\\YazılımMimarisi\\software-architecture-project\\Core\\Core.csproj"
               }
             }
           }
@@ -133,6 +143,10 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "FluentNHibernate": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
@@ -150,7 +164,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

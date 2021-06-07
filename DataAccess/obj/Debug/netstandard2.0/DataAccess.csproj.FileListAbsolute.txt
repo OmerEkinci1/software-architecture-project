@@ -12,3 +12,17 @@ D:\Program Files\Git Uploads\software-architecture-project\software-architecture
 D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\DataAccess\obj\Debug\netstandard2.0\DataAccess.csproj.CopyComplete
 D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\DataAccess\obj\Debug\netstandard2.0\DataAccess.dll
 D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\DataAccess\obj\Debug\netstandard2.0\DataAccess.pdb
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\DataAccess\bin\Debug\netstandard2.0\DataAccess.deps.json
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\DataAccess\bin\Debug\netstandard2.0\DataAccess.dll
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\DataAccess\bin\Debug\netstandard2.0\DataAccess.pdb
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\DataAccess\bin\Debug\netstandard2.0\Core.dll
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\DataAccess\bin\Debug\netstandard2.0\Entities.dll
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\DataAccess\bin\Debug\netstandard2.0\Core.pdb
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\DataAccess\bin\Debug\netstandard2.0\Entities.pdb
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\DataAccess\obj\Debug\netstandard2.0\DataAccess.csprojAssemblyReference.cache
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfo.cs
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\DataAccess\obj\Debug\netstandard2.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\DataAccess\obj\Debug\netstandard2.0\DataAccess.csproj.CopyComplete
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\DataAccess\obj\Debug\netstandard2.0\DataAccess.dll
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\DataAccess\obj\Debug\netstandard2.0\DataAccess.pdb

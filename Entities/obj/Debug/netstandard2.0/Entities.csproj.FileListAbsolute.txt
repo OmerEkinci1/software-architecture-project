@@ -10,3 +10,15 @@ D:\Program Files\Git Uploads\software-architecture-project\software-architecture
 D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\Entities\obj\Debug\netstandard2.0\Entities.csproj.CopyComplete
 D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\Entities\obj\Debug\netstandard2.0\Entities.dll
 D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\Entities\obj\Debug\netstandard2.0\Entities.pdb
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Entities\bin\Debug\netstandard2.0\Entities.deps.json
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Entities\bin\Debug\netstandard2.0\Entities.dll
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Entities\bin\Debug\netstandard2.0\Entities.pdb
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Entities\bin\Debug\netstandard2.0\Core.dll
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Entities\bin\Debug\netstandard2.0\Core.pdb
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Entities\obj\Debug\netstandard2.0\Entities.csprojAssemblyReference.cache
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Entities\obj\Debug\netstandard2.0\Entities.AssemblyInfoInputs.cache
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Entities\obj\Debug\netstandard2.0\Entities.AssemblyInfo.cs
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Entities\obj\Debug\netstandard2.0\Entities.csproj.CoreCompileInputs.cache
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Entities\obj\Debug\netstandard2.0\Entities.csproj.CopyComplete
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Entities\obj\Debug\netstandard2.0\Entities.dll
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Entities\obj\Debug\netstandard2.0\Entities.pdb

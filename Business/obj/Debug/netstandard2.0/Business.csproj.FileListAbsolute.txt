@@ -2,3 +2,19 @@ D:\Program Files\Git Uploads\software-architecture-project\software-architecture
 D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\Business\obj\Debug\netstandard2.0\Business.AssemblyInfoInputs.cache
 D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\Business\obj\Debug\netstandard2.0\Business.AssemblyInfo.cs
 D:\Program Files\Git Uploads\software-architecture-project\software-architecture-project\Business\obj\Debug\netstandard2.0\Business.csproj.CoreCompileInputs.cache
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\bin\Debug\netstandard2.0\Business.deps.json
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\bin\Debug\netstandard2.0\Business.dll
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\bin\Debug\netstandard2.0\Business.pdb
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\bin\Debug\netstandard2.0\Core.dll
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\bin\Debug\netstandard2.0\DataAccess.dll
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\bin\Debug\netstandard2.0\Entities.dll
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\bin\Debug\netstandard2.0\Core.pdb
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\bin\Debug\netstandard2.0\DataAccess.pdb
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\bin\Debug\netstandard2.0\Entities.pdb
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\obj\Debug\netstandard2.0\Business.csprojAssemblyReference.cache
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\obj\Debug\netstandard2.0\Business.AssemblyInfoInputs.cache
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\obj\Debug\netstandard2.0\Business.AssemblyInfo.cs
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\obj\Debug\netstandard2.0\Business.csproj.CoreCompileInputs.cache
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\obj\Debug\netstandard2.0\Business.csproj.CopyComplete
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\obj\Debug\netstandard2.0\Business.dll
+C:\Users\engin\source\repos\YazılımMimarisi\software-architecture-project\Business\obj\Debug\netstandard2.0\Business.pdb
