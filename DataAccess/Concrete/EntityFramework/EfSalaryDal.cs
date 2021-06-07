@@ -73,7 +73,7 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        WorkerSalaryDto ISalaryDal.GetWorkerID(int workerID)
+        public WorkerSalaryDto GetWorkerID(int workerID)
         {
             using (DatabaseContext db = new DatabaseContext())
             {
@@ -83,7 +83,7 @@ namespace DataAccess.Concrete.EntityFramework
                              join user in db.Users on
                              salary.UserID equals user.UserID
                              where worker.WorkerID == workerID && worker.Status == true
-                             orderby salary descending
+                             orderby salary.SalaryDate descending 
                              select new WorkerSalaryDto
                              {
                                  WorkerID = salary.WorkerID,
@@ -104,5 +104,6 @@ namespace DataAccess.Concrete.EntityFramework
 
             }
         }
+
     }
 }

@@ -11,8 +11,8 @@ namespace Business.Abstract
     public interface IProjectGeneralService
     {
         IResult Add(ProjectCreationDto projectCreationDto);
-        IResult Delete(Project project);
-        IDataResult<ProjectGeneralDto> GetProjectByProjectID(Project project);
+        IResult Delete(int projectID);
+        IDataResult<ProjectGeneralDto> GetProjectByProjectID(int projectID);
 
     }
 }

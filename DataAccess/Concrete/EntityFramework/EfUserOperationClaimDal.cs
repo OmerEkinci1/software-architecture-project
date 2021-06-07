@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using Entities.DTOs;
 
 namespace DataAccess.Concrete.EntityFramework
 {
@@ -12,15 +13,39 @@ namespace DataAccess.Concrete.EntityFramework
     {
         public List<OperationClaim> GetClaims(User user)
         {
-            using (var context = new DatabaseContext())
+            using (DatabaseContext db= new DatabaseContext())
             {
-                var result = from operationClaim in context.OperationClaims
-                             join userOperationClaim in context.UserOperationClaims
-                                 on operationClaim.OperationClaimID equals userOperationClaim.OperationClaimID
-                             where userOperationClaim.UserID == user.UserID
-                             select new OperationClaim { OperationClaimID = operationClaim.OperationClaimID, OperationClaimName = operationClaim.OperationClaimName };
+                var result = from u in db.Users
+                             join uop in db.UserOperationClaims on
+                             u.UserID equals uop.UserID
+                             select new OperationClaim
+                             {             
+                                 OperationClaimID=uop.OperationClaimID,
+                             };
                 return result.ToList();
+            }
+        }
 
+        public List<UserOperationClaimDto> GetAllUserOperationClaim()
+        {
+            using (DatabaseContext db = new DatabaseContext())
+            {
+                var result = from us in db.Users
+                             join uop in db.UserOperationClaims on
+                             us.UserID equals uop.UserID
+                             join o in db.OperationClaims on
+                             uop.OperationClaimID equals o.OperationClaimID
+                             select new UserOperationClaimDto
+                             {
+                                 UserID = us.UserID,
+                                 OperationClaimID = o.OperationClaimID,
+                                 UserOperationClaimID = uop.UserOperationClaimID,
+                                 UserName = us.Name,
+                                 UserSurname = us.Surname,
+                                 OperationClaimName = o.OperationClaimName,
+
+                             };
+                return result.ToList();
             }
         }
     }

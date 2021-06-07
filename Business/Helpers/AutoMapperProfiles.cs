@@ -16,6 +16,7 @@ namespace Business.Helpers
             CreateMap<ProjectDetailDto, Project>();
             CreateMap<WorkerCreationDto,Worker>();
             CreateMap<WorkerSalaryDto, Salary>();
+            CreateMap<WorkerDto, Worker>();
 
         }
     }

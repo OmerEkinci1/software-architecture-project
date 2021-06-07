@@ -10,5 +10,6 @@ namespace DataAccess.Abstract
     public interface IUserDal : IEntityRepository<User>
     {
         UserDto GetUserID(int userID);
+        List<User> GetAllUserByStatusTrue();
     }
 }

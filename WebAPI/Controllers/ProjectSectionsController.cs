@@ -14,10 +14,12 @@ namespace WebAPI.Controllers
     public class ProjectSectionsController : ControllerBase
     {
         private IProjectSectionService _projectSectionService;
+        private IProjectService _projectService;
 
-        public ProjectSectionsController(IProjectSectionService projectSectionService)
+        public ProjectSectionsController(IProjectSectionService projectSectionService, IProjectService projectService)
         {
             _projectSectionService = projectSectionService;
+            _projectService = projectService;
         }
 
         [HttpPost("add")]
@@ -54,9 +56,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getbyprojectid")]
-        public ActionResult GetByProjectID(ProjectSection projectSection)
+        public ActionResult GetByProjectID(int projectID)
         {
-            var result = _projectSectionService.GetByProjectID(projectSection.ProjectID);
+            var result = _projectSectionService.GetByProjectID(projectID);
             if (result.Data != null)
             {
                 return Ok(result);
@@ -64,6 +66,16 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        
+        [HttpGet("getall")]
+        public ActionResult GetAll()
+        {
+            var result = _projectSectionService.GetAll();
+            if (result.Data != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
     }
 }

@@ -55,9 +55,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getall")]
-        public ActionResult GetClaims(User user)
+        public ActionResult GetAllUserClaims()
         {
-            var result = _userOperationClaimService.GetClaims(user);
+            var result = _userOperationClaimService.GetAllUserClaims();
             if (result.Data.Count>0)
             {
                 return Ok(result);

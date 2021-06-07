@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -30,11 +31,16 @@ namespace Business.Concrete
             return new SuccessResult(Messages.WorkerSalaryExperienceUpdated);
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<WorkerSalaryExperienceDto>> GetByDepartmentTypeID(int departmentTypeID)
         {
             return new SuccessDataResult<List<WorkerSalaryExperienceDto>>(_workerSalaryExperienceDal.GetByDepartmentTypeID(departmentTypeID));
         }
 
-
+        [CacheAspect(duration: 10)]
+        public IDataResult<List<WorkerSalaryExperienceDto>> GetAll()
+        {
+            return new SuccessDataResult<List<WorkerSalaryExperienceDto>>(_workerSalaryExperienceDal.GetAll());
+        }
     }
 }

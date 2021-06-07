@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -49,15 +50,24 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ProjectSectionDepartmentUpdate);
         }
 
+        [CacheAspect(duration: 10)]
+        public IDataResult<List<ProjectSectionDepartmentDto>> GetAll()
+        {
+            return new SuccessDataResult<List<ProjectSectionDepartmentDto>>(_projectSectionDepartmentDal.GetAll());
+        }
+
         //public IDataResult<List<ProjectSectionDepartmentDto>> GetByProjectID(int projectID)
         //{
         //    return new SuccessDataResult<List<ProjectSectionDepartmentDto>>(_projectSectionDepartmentDal.GetByProjectID(projectID));
         //}
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<ProjectSectionDepartmentDto>> GetBySectionID(int sectionID)
         {
             return new SuccessDataResult<List<ProjectSectionDepartmentDto>>(_projectSectionDepartmentDal.GetBySectionID(sectionID));
         }
+
+        [CacheAspect(duration: 10)]
         public IDataResult<ProjectSectionDepartmentDto> GetByID(int projectSectionDepartmentID)
         {
             return new SuccessDataResult<ProjectSectionDepartmentDto>(_projectSectionDepartmentDal.GetByID(projectSectionDepartmentID));
@@ -82,6 +92,6 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-       
+        
     }
 }

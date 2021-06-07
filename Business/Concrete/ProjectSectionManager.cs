@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -20,14 +21,17 @@ namespace Business.Concrete
             _projectSectionDal = projectSectionDal;
         }
 
-        public IResult Add(ProjectSection projectSections)
+        public IResult Add(ProjectSection projectSection)
         {
-            IResult result = BusinessRules.Run(CheckIfSectionNameAlreadyExistInProject(projectSections));
+            IResult result = BusinessRules.Run(CheckIfSectionNameAlreadyExistInProject(projectSection));
             if (result!=null)
             {
                 return result;
             }
-            _projectSectionDal.Add(projectSections);
+            projectSection.RemainingSectionTime = projectSection.SectionProjectTime;
+            projectSection.WorkerCount = 0;
+            projectSection.Status = true;
+            _projectSectionDal.Add(projectSection);
             return new SuccessResult(Messages.ProjectSectionAdded);
         }
 
@@ -48,13 +52,22 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ProjectSectionUpdated);
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<ProjectSection>> GetByProjectID(int projectID)
         {
-            return new SuccessDataResult<List<ProjectSection>>(_projectSectionDal.GetAll(p=>p.ProjectID==projectID && p.Status==true));
+            return new SuccessDataResult<List<ProjectSection>>(_projectSectionDal.GetAll(p=>p.ProjectID==projectID));
         }
+
+        [CacheAspect(duration: 10)]
         public IDataResult<ProjectSection> GetBySectionID(int sectionID)
         {
             return new SuccessDataResult<ProjectSection>(_projectSectionDal.Get(p => p.ProjectSectionID == sectionID && p.Status == true));
+        }
+
+        [CacheAspect(duration: 10)]
+        public IDataResult<List<ProjectSectionDto>> GetAll()
+        {
+            return new SuccessDataResult<List<ProjectSectionDto>>(_projectSectionDal.GetAll());
         }
 
         //public IDataResult<List<ProjectSectionDto>> GetByUserID(int userID)
@@ -76,6 +89,6 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-       
+        
     }
 }

@@ -44,9 +44,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public ActionResult Update(Worker worker)
+        public ActionResult Update(WorkerDto workerDto)
         {
-            var result = _workerService.Update(worker);
+            var result = _workerService.Update(workerDto);
             if (result.Success)
             {
                 return Ok(result);
@@ -65,6 +65,17 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-       
+        [HttpGet("getallworkerstatusfalse")]
+        public ActionResult GetAllWorkerStatusFalse()
+        {
+            var result = _workerService.GetAllWorkersByStatusFalse();
+            if (result.Data != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+
     }
 }

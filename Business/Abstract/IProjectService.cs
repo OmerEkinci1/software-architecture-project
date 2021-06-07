@@ -11,7 +11,7 @@ namespace Business.Abstract
     {
         IResult Add(Project project);
         IResult Update(Project project);
-        IResult Delete(Project project);
+        IResult Delete(int projectID);
         IDataResult<ProjectDetailDto> GetByID(int projectID);
         IDataResult<List<ProjectDetailDto>> GetAll();
         IDataResult<List<ProjectDetailDto>> GetProjectByUserID(int userID);

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Entites.Concrete;
 using Core.Utilities.Results;
 using Entities.Concrete;
@@ -43,9 +44,6 @@ namespace Business.Concrete
                     ProjectID = project.ProjectID,
                     ProjectSectionName = projectSection.ProjectSectionName,
                     SectionProjectTime = projectSection.SectionProjectTime,
-                    RemainingSectionTime = projectSection.SectionProjectTime,
-                    WorkerCount = 0,
-                    Status = true
                 };
                 _projectSectionService.Add(psection);
 
@@ -66,11 +64,11 @@ namespace Business.Concrete
 
         }
 
-        public IResult Delete(Project project)
+        public IResult Delete(int projectID)
         {
-            if (project.ProjectID!=0)
+            if (projectID != 0)
             {
-                var result=_projectService.Delete(project);
+                var result=_projectService.Delete(projectID);
                 if (result.Success)
                 {
                     return new SuccessResult(Messages.ProjectDeleted);
@@ -78,9 +76,11 @@ namespace Business.Concrete
             }
             return new ErrorResult(Messages.ProjectNotDeleted);
         }
-        public IDataResult<ProjectGeneralDto> GetProjectByProjectID(Project project)
+
+        [CacheAspect(duration: 10)]
+        public IDataResult<ProjectGeneralDto> GetProjectByProjectID(int projectID)
         {
-            var getProject = _projectService.GetByID(project.ProjectID).Data;
+            var getProject = _projectService.GetByID(projectID).Data;
             var getAllProjectSection = _projectSectionService.GetByProjectID(getProject.ProjectID).Data;
             List<ProjectSectionKeepListDepartmentDto> projectSectionKeepList=new List<ProjectSectionKeepListDepartmentDto>();
             foreach (var projectSection  in getAllProjectSection)

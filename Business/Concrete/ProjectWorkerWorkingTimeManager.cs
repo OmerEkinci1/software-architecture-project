@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -134,17 +135,19 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UpdatedProjectWorkerWorkingTime);
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<ProjectWorkerWorkingTimeDto>> GetAll()
         {
             return new SuccessDataResult<List<ProjectWorkerWorkingTimeDto>>(_projectWorkerWorkingTimeDal.GetAll());
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<List<ProjectWorkerWorkingTimeDto>> GetByProjectWorkerID(int projectWorkerID)
         {
             return new SuccessDataResult<List<ProjectWorkerWorkingTimeDto>>(_projectWorkerWorkingTimeDal.GetByProjectWorkerID(projectWorkerID));
         }
 
-
+        [CacheAspect(duration: 10)]
         public IDataResult<ProjectWorkerWorkingTime> GetByProjectWorkerWorkingTimeID(int projectWorkerWorkingTimeID)
         {
             return new SuccessDataResult<ProjectWorkerWorkingTime>(_projectWorkerWorkingTimeDal.Get(p => p.ProjectWorkerWorkingTimeID == projectWorkerWorkingTimeID));

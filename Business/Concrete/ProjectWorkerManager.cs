@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Abstract;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -59,9 +60,10 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ProjectWorkerAdded);
         }
 
-        public IResult Delete(ProjectWorker projectWorkers)
+        public IResult Delete(int projectWorkerID)
         {
-            var getDepartmentTypeInSection = _projectSectionDepartmentService.GetByID(projectWorkers.ProjectSectionDepartmentID).Data;
+            var getProjectWorker = GetByID(projectWorkerID).Data;
+            var getDepartmentTypeInSection = _projectSectionDepartmentService.GetByID(getProjectWorker.ProjectSectionDepartmentID).Data;
             var getProjectSection = _projectSectionService.GetBySectionID(getDepartmentTypeInSection.ProjectSectionID).Data;
             var getProject = _projectService.GetByID(getProjectSection.ProjectID).Data;
 
@@ -72,8 +74,8 @@ namespace Business.Concrete
                 return result;
             }
 
-            projectWorkers.Status = false;
-            _projectWorkerDal.Update(projectWorkers);
+            getProjectWorker.Status = false;
+            _projectWorkerDal.Update(getProjectWorker);
 
             getProject.ActiveWorkerCount -= 1;
             var getProjectMapper = _mapper.Map<Project>(getProject);
@@ -102,7 +104,7 @@ namespace Business.Concrete
         }
 
 
-
+        [CacheAspect(duration: 10)]
         public IDataResult<List<ProjectWorkerGeneralDto>> GetAll()
         {
             var getProjectWorkers = _projectWorkerDal.GetAll();
@@ -110,12 +112,13 @@ namespace Business.Concrete
             return new SuccessDataResult<List<ProjectWorkerGeneralDto>>(projectWorkerGeneralDtos);
         }
 
+        [CacheAspect(duration: 10)]
         public IDataResult<ProjectWorker> GetByID(int projectWorkerID)
         {
             return new SuccessDataResult<ProjectWorker>(_projectWorkerDal.Get(p=>p.ProjectWorkerID==projectWorkerID));
         }
 
-
+        [CacheAspect(duration: 10)]
         public IDataResult<ProjectWorkerGeneralDto> GetByProjectSectionDepartmentID(int projectSectionDepartmentID)
         {
 
@@ -140,7 +143,7 @@ namespace Business.Concrete
         }
 
 
-
+        [CacheAspect(duration: 10)]
         public IDataResult<List<ProjectWorkerGeneralDto>> GetByWorkerID(int workerID)
         {
             var getProjectWorkers = _projectWorkerDal.GetByWorkerID(workerID);
@@ -180,8 +183,6 @@ namespace Business.Concrete
 
             return projectWorkerGeneralDtos;
         }
-
-
 
 
         private IResult CheckProjectWorkerCapacityIsFull(ProjectDetailDto getProject)

@@ -9,6 +9,7 @@ namespace DataAccess.Abstract
 {
     public interface IWorkerDal : IEntityRepository<Worker>
     {
-        List<WorkerDto> GetAll();
+        List<WorkerDto> GetAllWorker();
+        List<Worker> GetAllWorkerByStatusFalse();
     }
 }

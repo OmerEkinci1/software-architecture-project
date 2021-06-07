@@ -54,9 +54,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public ActionResult Delete(ProjectWorker projectWorker)
+        public ActionResult Delete(int projectWorkerID)
         {
-            var result = _projectWorkerService.Delete(projectWorker);
+            var result = _projectWorkerService.Delete(projectWorkerID);
             if (result.Success)
             {
                 return Ok(result);
